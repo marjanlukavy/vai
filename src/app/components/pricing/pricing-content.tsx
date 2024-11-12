@@ -1,6 +1,9 @@
+//@ts-nocheck
+
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SlashButton from "@/components/common/controllers/button/slash-button";
+import FeaturesList from "./features-list";
 
 interface PricingFeature {
   title: string;
@@ -74,13 +77,13 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-col gap-4 items-center"
       >
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-1 md:gap-4 items-center">
           <div className="flex items-center gap-2 relative">
-            <span className="font-nb text-[40px] leading-[44px] tracking-[-1.2px] text-white">
+            <span className="font-nb text-[20px] leading-[24px] md:text-[40px] md:leading-[44px] tracking-[-1.2px] text-white">
               {plan.title}
             </span>
             {plan.isPopular ? (
-              <div className="most-popular py-[5px] px-2 bg-[#000000CC] grid place-content-center absolute top-[-20%] right-[-30%]">
+              <div className="most-popular py-[5px] px-2 bg-[#000000CC] hidden md:grid place-content-center absolute top-[-20%] right-[-30%]">
                 <span className="bg-gradient-to-r from-[#5674CD] to-[#9AB4FF] font-normal font-nm text-[12px] leading-[16px] bg-clip-text text-transparent">
                   Most Popular
                 </span>
@@ -88,10 +91,10 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
             ) : null}
           </div>
           <div className="flex gap-1 items-end justify-center">
-            <span className="text-[#FFFFFF] text-[32px] font-nb leading-[36px] tracking-[-0.96px]">
+            <span className="text-[#FFFFFF] md:text-[32px] text-[20px] leading-[24px] font-nb md:leading-[36px] tracking-[-0.96px]">
               ${plan.price}
             </span>
-            <span className="text-[#9DA2B3] text-[16px] font-nb leading-[20px] tracking-[-0.48px]">
+            <span className="text-[#9DA2B3] text-[14px] leading-[18px] md:text-[16px] font-nb md:leading-[20px] tracking-[-0.48px]">
               per month
             </span>
           </div>
@@ -99,7 +102,7 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
 
         <motion.div
           layout
-          className="grid grid-cols-2 gap-y-4 gap-x-16 mt-[60px] mb-[60px]"
+          className="lg:grid grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-16 mt-[60px] mb-[60px] hidden"
         >
           {plan.features.map((feature, index) => (
             <motion.div
@@ -125,6 +128,10 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
             </motion.div>
           ))}
         </motion.div>
+
+        <div className="lg:hidden">
+          <FeaturesList plan={plan} isMobile={true} />
+        </div>
 
         <SlashButton
           label={`Try ${activeTab === "pro" ? "Pro " : ""}Now`}

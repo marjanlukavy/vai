@@ -1,6 +1,7 @@
-export const SlashIcon = () => {
+export const SlashIcon = ({ className }: { className?: string }) => {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="16"
@@ -28,9 +29,10 @@ export const SlashIcon = () => {
   );
 };
 
-export const AtomicPowerIcon = () => {
+export const AtomicPowerIcon = ({ className }: { className: string }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -64,9 +66,10 @@ export const AtomicPowerIcon = () => {
     </svg>
   );
 };
-export const WorkoutIcon = () => {
+export const WorkoutIcon = ({ className }: { className: string }) => {
   return (
     <svg
+      className={className}
       width="32"
       height="32"
       viewBox="0 0 32 32"
@@ -105,9 +108,10 @@ export const WorkoutIcon = () => {
     </svg>
   );
 };
-export const ChartIcon = () => {
+export const ChartIcon = ({ className }: { className: string }) => {
   return (
     <svg
+      className={className}
       width="24"
       height="24"
       viewBox="0 0 24 24"
