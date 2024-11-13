@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start">
       <ScrollerMotion spring={{ mass: 1.25, stiffness: 200, damping: 50 }}>
-        {/* <Banner /> */}
+        <Banner />
         <Statement />
         <div className="w-full relative">
           <Features />

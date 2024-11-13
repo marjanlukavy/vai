@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface SlashIconProps {
   opacity?: string;
   className?: string;
@@ -6,13 +8,12 @@ interface SlashIconProps {
 export const SlashIcon = ({ className, opacity }: SlashIconProps) => {
   return (
     <svg
-      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="16"
       viewBox="0 0 12 16"
       fill="none"
-      className={"w-[12px] h-[14px] md:h-[16px]"}
+      className={clsx("w-[12px] h-[14px] md:h-[16px]", className)}
     >
       <path
         opacity={opacity}
