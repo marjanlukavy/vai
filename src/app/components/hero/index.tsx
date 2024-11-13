@@ -111,48 +111,48 @@ const Hero = () => {
     <section className="min-h-screen bg-white rounded-t-[24px] relative overflow-hidden">
       <div className="absolute size-[400px] top-[7%] left-[20%] z-10 flex items-center justify-center">
         {/* Floating Items */}
-        <AnimatePresence mode="wait">
-          {slides[currentIndex].tags.map((item, index) => (
-            <motion.div
-              key={`${currentIndex}-${index}`}
-              className={`absolute flex items-center gap-2 ${item.position} ${
-                index === 1 ? "flex-row-reverse" : ""
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{
-                duration: 0.8,
-                delay: index * 0.2,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+        {/*<AnimatePresence mode="wait">*/}
+        {slides[currentIndex].tags.map((item, index) => (
+          <motion.div
+            key={`${currentIndex}-${index}`}
+            className={`absolute flex items-center gap-2 ${item.position} ${
+              index === 1 ? "flex-row-reverse" : ""
+            }`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 0.8,
+              delay: index * 0.2,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+          >
+            <div
+              className={`px-[30px] py-3 rounded-[16px] bg-[#FFFFFF14] backdrop-blur-[10px] ${item.childItem}`}
             >
-              <div
-                className={`px-[30px] py-3 rounded-[16px] bg-[#FFFFFF14] backdrop-blur-[10px] ${item.childItem}`}
+              <span className="text-white text-[16px] leading-[18px] font-nb">
+                {item.text}
+              </span>
+            </div>
+            <div
+              className={`size-10 rounded-[12px] bg-[#FFFFFF14] backdrop-blur-[10px] grid place-content-center ${item.childItem}`}
+            >
+              <svg
+                width="12"
+                height="16"
+                viewBox="0 0 12 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <span className="text-white text-[16px] leading-[18px] font-nb">
-                  {item.text}
-                </span>
-              </div>
-              <div
-                className={`size-10 rounded-[12px] bg-[#FFFFFF14] backdrop-blur-[10px] grid place-content-center ${item.childItem}`}
-              >
-                <svg
-                  width="12"
-                  height="16"
-                  viewBox="0 0 12 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.14208 0.977723C8.71412 1.06418 8.24921 1.3575 7.99983 1.69713C7.94133 1.78049 6.18639 4.81867 4.10509 8.45274L0.318115 15.0571L1.52194 15.0663C2.8674 15.0756 2.91974 15.0694 3.3323 14.8656C3.50164 14.7823 3.62479 14.6927 3.79413 14.5198C4.02196 14.2883 4.07738 14.1956 7.79662 7.70864C9.86869 4.09 11.5928 1.08579 11.6236 1.03021L11.6821 0.93141L10.5152 0.934497C9.66856 0.937585 9.29294 0.949935 9.14208 0.977723Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+                <path
+                  d="M9.14208 0.977723C8.71412 1.06418 8.24921 1.3575 7.99983 1.69713C7.94133 1.78049 6.18639 4.81867 4.10509 8.45274L0.318115 15.0571L1.52194 15.0663C2.8674 15.0756 2.91974 15.0694 3.3323 14.8656C3.50164 14.7823 3.62479 14.6927 3.79413 14.5198C4.02196 14.2883 4.07738 14.1956 7.79662 7.70864C9.86869 4.09 11.5928 1.08579 11.6236 1.03021L11.6821 0.93141L10.5152 0.934497C9.66856 0.937585 9.29294 0.949935 9.14208 0.977723Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </motion.div>
+        ))}
+        {/*</AnimatePresence>*/}
 
         {/* Waves */}
         {waves.map((wave, index) => (
@@ -188,21 +188,21 @@ const Hero = () => {
 
       {/* Bottom right content */}
       <div className="absolute bottom-32 right-[100px] z-10 flex flex-col gap-8">
-        <AnimatePresence mode="wait">
-          <motion.h1
-            key={`title-${currentIndex}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="text-[56px] leading-[60px] tracking-[-1.68px] text-white font-nb font-light text-right"
-          >
-            {slides[currentIndex].title}
-          </motion.h1>
-        </AnimatePresence>
+        {/*<AnimatePresence mode="wait">*/}
+        <motion.h1
+          key={`title-${currentIndex}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="text-[56px] leading-[60px] tracking-[-1.68px] text-white font-nb font-light text-right"
+        >
+          {slides[currentIndex].title}
+        </motion.h1>
+        {/*</AnimatePresence>*/}
 
         <div className="flex gap-3 justify-end">
           {[0, 1, 2].map((index) => (

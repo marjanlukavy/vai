@@ -35,9 +35,10 @@ const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
+          delay: 0.6,
           duration: 2.4,
           ease: [0.16, 1, 0.3, 1],
-          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
         }}
       >
         <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
@@ -48,9 +49,10 @@ const Header = () => {
         initial={{ y: -20, opacity: 0, gap: "10px" }}
         animate={{ y: 0, opacity: 1, gap: "16px" }}
         transition={{
+          delay: 0.6,
           duration: 2.4,
           ease: [0.16, 1, 0.3, 1],
-          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
         }}
       >
         <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
@@ -78,9 +80,10 @@ const Header = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
+          delay: 0.6,
           duration: 2.4,
           ease: [0.16, 1, 0.3, 1],
-          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1] },
+          opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
         }}
       >
         <SlashButton label="Log in" className="py-[15px]" />

@@ -3,6 +3,16 @@ import Features from "./components/features";
 import Hero from "./components/hero";
 import Pricing from "./components/pricing";
 import Statement from "./components/statement";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  animate,
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import Preloader from "@/app/components/preloader";
 
 export default function Home() {
   return (

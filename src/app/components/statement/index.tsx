@@ -37,6 +37,7 @@ const Statement = () => {
     <section
       ref={sectionRef}
       className="h-screen grid place-content-center relative"
+      id={"statement-section"}
     >
       <div className="relative">
         {/* SVG Images Container */}
