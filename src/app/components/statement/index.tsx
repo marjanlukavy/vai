@@ -36,7 +36,7 @@ const Statement = () => {
   return (
     <section
       ref={sectionRef}
-      className="h-screen grid place-content-center relative"
+      className="min-h-[568px] lg:h-screen grid place-content-center relative"
       id={"statement-section"}
     >
       <div className="relative">
@@ -53,12 +53,9 @@ const Statement = () => {
             animate={isInView ? "animate" : "initial"}
             transition={getTransition(0.2)}
           >
-            <Image
-              src="/statement/first.svg"
-              alt="First Icon"
-              width={48}
-              height={48}
-            />
+            <div className="md:size-12 size-6 relative">
+              <Image src="/statement/first.svg" alt="Last Icon" fill />
+            </div>
           </motion.div>
 
           <motion.div
@@ -67,12 +64,9 @@ const Statement = () => {
             animate={isInView ? "animate" : "initial"}
             transition={getTransition(text.length * 0.08 * 0.33)}
           >
-            <Image
-              src="/statement/second.svg"
-              alt="Second Icon"
-              width={48}
-              height={48}
-            />
+            <div className="md:size-12 size-6 relative">
+              <Image src="/statement/second.svg" alt="Last Icon" fill />
+            </div>
           </motion.div>
 
           <motion.div
@@ -81,15 +75,11 @@ const Statement = () => {
             animate={isInView ? "animate" : "initial"}
             transition={getTransition(text.length * 0.08 * 0.56)}
           >
-            <Image
-              src="/statement/third.svg"
-              alt="Third Icon"
-              width={48}
-              height={48}
-            />
+            <div className="md:size-12 size-6 relative">
+              <Image src="/statement/third.svg" alt="Last Icon" fill />
+            </div>
           </motion.div>
 
-          {/* Last image that takes position of third image */}
           <motion.div
             variants={imageVariants}
             initial="initial"
@@ -97,16 +87,12 @@ const Statement = () => {
             transition={getTransition(text.length * 0.08 * 0.95)}
             className="absolute right-0"
           >
-            <Image
-              src="/statement/last.svg"
-              alt="Last Icon"
-              width={48}
-              height={48}
-            />
+            <div className="md:size-12 size-6 relative">
+              <Image src="/statement/last.svg" alt="Last Icon" fill />
+            </div>
           </motion.div>
         </motion.div>
-        <p className="text-[40px] leading-[48px] tracking-[-1.2px] font-light max-w-[735px] text-center relative font-nb">
-          {/* Text Content */}
+        <p className="text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] tracking-[-1.2px] font-light max-w-[290px] md:max-w-[735px] text-center relative font-nb">
           {text.map((char, i) => (
             <motion.span
               key={i}
@@ -116,7 +102,7 @@ const Statement = () => {
               animate={
                 isInView
                   ? {
-                      background: "linear-gradient(to right, #94A8ED, #FFFFFF)",
+                      background: "linear-gradient(to top, #2A5FDD, #77A9E8)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",

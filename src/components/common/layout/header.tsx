@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <header className="max-w-[1280px] mx-auto w-full pt-8 flex items-center justify-between">
+    <header className="max-w-[1280px] mx-auto w-full pt-8 flex items-center justify-between relative z-50">
       <motion.div
         className="relative max-w-[124.459px] w-full h-[28.394px]"
         initial={{ y: -20, opacity: 0 }}
