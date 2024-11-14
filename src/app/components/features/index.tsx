@@ -246,7 +246,7 @@ const Features = () => {
                       }}
                       transition={{
                         duration: 1.5,
-                        delay: tabIndex * 2.2,
+                        delay: tabIndex * 0.6,
                       }}
                       className="w-full flex flex-col md:flex-row items-start justify-between"
                     >

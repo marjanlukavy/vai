@@ -58,17 +58,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nbInternational.variable} antialiased`}>
-        <AnimatePresence>
-          {loading ? (
-            <Preloader key={"preloader"} />
-          ) : (
-            <>
-              <Header />
-              {children}
-              <Footer />
-            </>
-          )}
-        </AnimatePresence>
+        {/* <AnimatePresence> */}
+        {/* {loading ? ( */}
+        {/* // <Preloader key={"preloader"} /> */}
+        {/* ) : ( */}
+        <>
+          <Header />
+          {children}
+          <Footer />
+        </>
+        {/* )} */}
+        {/* </AnimatePresence> */}
       </body>
     </html>
   );
