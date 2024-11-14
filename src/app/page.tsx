@@ -1,5 +1,3 @@
-"use client";
-
 import SmoothScroll from "@/components/common/animations/smooth-scroll";
 import Banner from "./components/banner";
 import FAQ from "./components/faq";
@@ -8,7 +6,11 @@ import Hero from "./components/hero";
 import Pricing from "./components/pricing";
 import Statement from "./components/statement";
 import TryNow from "./components/try-now";
-import { ScrollerMotion, ScrollerMotionRef } from "scroller-motion";
+
+export const metadata = {
+  title: "VAI",
+  description: "",
+};
 
 export default function Home() {
   return (

@@ -268,7 +268,7 @@ const Features = () => {
                             }}
                             className="w-full flex items-center gap-8"
                           >
-                            <span className="text-[#9DA2B3] font-nb text-[16px] leading-[20px] font-light">
+                            <span className="cursor-pointer bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-[#9DA2B3] to-[#9DA2B3] bg-clip-text text-transparent font-nb text-[16px] leading-[20px] font-light">
                               {item}
                             </span>
                           </motion.div>
