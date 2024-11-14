@@ -42,10 +42,12 @@ const Banner = () => {
 
   return (
     <div className="max-w-[1280px] w-full mx-auto px-[16px]">
-      <div className="h-[600px] w-full flex justify-center relative">
+      <div className="h-[437px] overflow-hidden md:h-[600px] w-full flex justify-center relative">
         <AnimatePresence>
           <motion.img
-            className={"absolute w-fit h-full "}
+            className={
+              "absolute w-fit h-full object-contain scale-[2] md:scale-100 md:object-cover"
+            }
             key={imgSrc} // Make sure the image changes when stage changes
             src={imgSrc}
             alt="Dynamic GIF"

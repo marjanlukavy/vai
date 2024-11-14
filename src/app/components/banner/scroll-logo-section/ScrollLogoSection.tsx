@@ -99,7 +99,7 @@ const ScrollLogoSection = () => {
         }}
       >
         <img
-          src={"/life-copilot.svg"}
+          src={"/logo-pilot.svg"}
           alt={"Life Copilot"}
           width={72.976}
           height={48}

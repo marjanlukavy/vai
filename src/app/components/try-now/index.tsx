@@ -23,7 +23,7 @@ const TryNow = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen md:min-h-[900px] grid place-content-center relative overflow-hidden"
+      className="min-h-screen md:min-h-[900px] bg-black grid place-content-center relative overflow-hidden"
     >
       <div className="flex flex-col gap-4 md:gap-6 items-center relative z-50">
         <motion.h2
@@ -31,11 +31,11 @@ const TryNow = () => {
             y: titleY,
             opacity: titleOpacity,
           }}
-          className="font-nb text-[24px] leading-[28px] md:text-[48px] font-light md:leading-[60px] tracking-[-1.68px] text-white max-w-[185px] md:max-w-[715px] mx-auto text-center"
+          className="font-nb text-[24px] leading-[28px] md:text-[56px] font-light md:leading-[60px] tracking-[-1.68px] text-white max-w-[185px] md:max-w-[715px] mx-auto text-center"
         >
-          Take Control with{" "}
-          <span className="bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent">
-            VAI OS{" "}
+          Meet Your{" "}
+          <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent">
+            Life CoPilot{" "}
           </span>
           Today
         </motion.h2>
@@ -45,10 +45,9 @@ const TryNow = () => {
             y: descriptionY,
             opacity: descriptionOpacity,
           }}
-          className="font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-[#FFFFFF99] max-w-[283px] md:max-w-[351px] text-center tracking-[0.03rem] font-light"
+          className="font-nb text-[14px] leading-[18px] md:text-[16px] md:leading-[20px] text-[#FFFFFF99] max-w-[283px] md:max-w-[241px] text-center tracking-[0.03rem] font-light"
         >
-          Manage your life, health, and data effortlessly with VAI OS—all in one
-          place.
+          Manage your life, work, and health effortlessly with VAI OS.
         </motion.p>
 
         <motion.div
@@ -60,7 +59,7 @@ const TryNow = () => {
           <SlashButton
             showIcon={false}
             label="Try now"
-            className="gap-4 bg-[#94a7ed28] py-[19px] test mx-auto"
+            className="gap-4 !bg-[#77A9E829] py-[19px] test mx-auto"
             labelClassName="!tracking-[-0.2px]"
           />
         </motion.div>

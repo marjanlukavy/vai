@@ -13,18 +13,16 @@ import { ScrollerMotion, ScrollerMotionRef } from "scroller-motion";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start">
-      <ScrollerMotion spring={{ mass: 1.25, stiffness: 200, damping: 50 }}>
-        <Banner />
-        <Statement />
-        <div className="w-full relative">
-          <Features />
-          <div className="relative 2xl:h-screen">
-            <Pricing />
-            <FAQ />
-            <TryNow />
-          </div>
+      <Banner />
+      <Statement />
+      <div className="w-full relative">
+        <Features />
+        <div className="relative ">
+          <Pricing />
+          <FAQ />
+          <TryNow />
         </div>
-      </ScrollerMotion>
+      </div>
     </main>
   );
 }

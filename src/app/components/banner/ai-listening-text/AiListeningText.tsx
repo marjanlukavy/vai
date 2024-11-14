@@ -11,7 +11,7 @@ const AiListeningText = () => {
   let text = "";
   switch (currentStage) {
     case "start":
-      text = "AI Listening..";
+      text = "Listening..";
       break;
     case "thinking":
       text = "AI Thinking...";
@@ -20,10 +20,10 @@ const AiListeningText = () => {
       text = "AI Speaking...";
       break;
     case "submit":
-      text = "AI is waiting for a question...";
+      text = "Waiting for a question...";
       break;
     default:
-      text = "AI Listening..";
+      text = "Thinking...";
       break;
   }
 

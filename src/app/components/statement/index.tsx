@@ -11,7 +11,7 @@ const Statement = () => {
   });
 
   const text =
-    "Vyvo AI reshapes technology with adaptive responses that enhance decision-making.".split(
+    "VAI OS is a secure Web3 AI operating system built to be your Life CoPilot. It simplifies the way you approach your work, health, and more, allowing you to focus on what matters most.".split(
       ""
     );
 
@@ -92,7 +92,7 @@ const Statement = () => {
             </div>
           </motion.div>
         </motion.div>
-        <p className="text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] tracking-[-1.2px] font-light max-w-[290px] md:max-w-[735px] text-center relative font-nb">
+        <p className="text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] tracking-[-1.2px] font-light max-w-[290px] md:max-w-[842px] text-center relative font-nb">
           {text.map((char, i) => (
             <motion.span
               key={i}
@@ -102,7 +102,7 @@ const Statement = () => {
               animate={
                 isInView
                   ? {
-                      background: "linear-gradient(to top, #2A5FDD, #77A9E8)",
+                      background: "linear-gradient(to right, #2A5FDD, #77A9E8)",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
                       backgroundClip: "text",

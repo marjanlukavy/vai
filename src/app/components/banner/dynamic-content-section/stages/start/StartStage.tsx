@@ -10,7 +10,7 @@ const StartStage = () => {
 
   return (
     <>
-      <BannerTitle words={"Experience the Vyvo AI"} />
+      <BannerTitle words={"Experience VAI OS"} />
       <BannerParagraph />
 
       <motion.div

@@ -22,11 +22,11 @@ const SlashButton = ({
       <button
         type={type}
         onClick={onClick}
-        className={`relative z-10 px-[30px] rounded-[12px] hover:rounded-[16px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow flex items-center gap-2 ${className}`}
+        className={`relative z-10 px-[30px] rounded-[12px] hover:rounded-[16px] bg-[#77A9E829] backdrop-blur-[10px] main-shadow flex items-center gap-2 ${className}`}
       >
         {showIcon && <SlashIcon />}
         <span
-          className={`text-[16px] leading-[18px] tracking-[-0.16px] text-white font-nb ${labelClassName}`}
+          className={`text-[16px] leading-[18px] tracking-[-0.16px] text-white  ${labelClassName}`}
         >
           {label}
         </span>
