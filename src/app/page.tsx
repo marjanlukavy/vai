@@ -15,16 +15,16 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-start">
-      {/* <Banner /> */}
+      <Banner />
       <Statement />
-      {/* <div className="w-full relative">
+      <div className="w-full relative">
         <Features />
         <div className="relative ">
           <Pricing />
           <FAQ />
           <TryNow />
         </div>
-      </div> */}
+      </div>
     </main>
   );
 }
