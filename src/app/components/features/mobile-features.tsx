@@ -1,28 +1,29 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import { AtomicPowerIcon, ChartIcon, WorkoutIcon } from "@/components/svg";
+import { Icon1, Icon2, Icon3 } from ".";
 
 const MobileFeatures = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   return (
-    <section className="bg-white min-h-[568px] px-4 py-[28px] rounded-[24px]">
+    <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px]">
       <div className="flex flex-col mb-[28px]">
         <h2 className="text-[24px] leading-[28px] font-nb font-light tracking-[-0.72px] text-center mb-[71px]">
           <span className="text-[#94A8ED] block mb-1">A Companion That</span>
-          <span className="text-black">Anticipates Your Needs</span>
+          <span className="text-white">Anticipates Your Needs</span>
         </h2>
       </div>
       <div className="flex flex-col gap-6">
-        <span className="text-black text-center font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
+        <span className="text-white text-center font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
           Features of VAI
         </span>
 
-        <div className="flex flex-col border-y border-[#00000033]">
+        <div className="flex flex-col border-y border-[#fff]">
           {tabsData.map((tab, index) => (
             <div
               key={tab.id}
-              className="border-t border-[#00000033] first:border-t-0"
+              className="border-t border-[#fff] first:border-t-0"
             >
               <motion.div
                 className="w-full py-[19px] flex items-center justify-between"
@@ -35,12 +36,36 @@ const MobileFeatures = () => {
                     className={`w-6 h-6 flex items-center justify-center
                   ${activeAccordion === index ? "opacity-100" : "opacity-30"}`}
                   >
-                    <tab.icon className="w-full h-full" />
+                    {index === 0 ? (
+                      <Icon1
+                        className={`${
+                          activeAccordion === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    ) : index === 1 ? (
+                      <Icon2
+                        className={`${
+                          activeAccordion === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    ) : (
+                      <Icon3
+                        className={`${
+                          activeAccordion === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    )}
                   </div>
                   <span
                     className={`font-nb text-[16px] leading-[20px] tracking-[-0.03em]
                   ${
-                    activeAccordion === index ? "text-[#94A8ED]" : "text-black"
+                    activeAccordion === index ? "text-[#94A8ED]" : "text-white"
                   }`}
                   >
                     {tab.label}
@@ -52,7 +77,7 @@ const MobileFeatures = () => {
                 >
                   <ChevronDownIcon
                     className={`w-5 h-5 ${
-                      activeAccordion === index ? "text-[#]" : "text-black"
+                      activeAccordion === index ? "text-[#]" : "text-white"
                     }`}
                   />
                 </motion.div>
@@ -70,7 +95,7 @@ const MobileFeatures = () => {
                     <div className="pb-6  flex flex-col gap-4">
                       {tab.sections.map((section, sectionIndex) => (
                         <div key={sectionIndex} className="flex flex-col gap-4">
-                          <h3 className="font-nb text-[16px] leading-[20px] tracking-[-0.03em] text-black">
+                          <h3 className="font-nb text-[16px] leading-[20px] tracking-[-0.03em] text-white">
                             {section.title}
                           </h3>
                           <div className="flex flex-col gap-[2px]">
@@ -83,7 +108,7 @@ const MobileFeatures = () => {
                                   duration: 0.3,
                                   delay: itemIndex * 0.1,
                                 }}
-                                className="text-[#9DA2B3]  text-[14px] leading-[18px] tracking-[-0.03em] font-light"
+                                className="text-[#fff]  text-[14px] leading-[18px] tracking-[-0.03em] font-light"
                               >
                                 {item}
                               </motion.p>
@@ -115,7 +140,7 @@ const ChevronDownIcon = ({ className }: { className?: string }) => (
   >
     <path
       d="M13 1.00005C13 1.00005 8.58107 6.99999 6.99995 7C5.41884 7.00001 1 1 1 1"
-      stroke="black"
+      stroke="white"
       stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
@@ -129,33 +154,29 @@ const tabsData = [
   {
     id: 1,
     icon: AtomicPowerIcon,
-    label: "VAI OS",
+    label: "Advanced AI",
     sections: [
-      {
-        title: "Personalized Life Management",
-        items: [
-          "Proactive Life CoPilot, not just an AI assistant.",
-          "Manages emails, calendars, and restaurant bookings.",
-          "Adapts to your daily routines for personalized support.",
-          "Helps across multiple areas of your life.",
-        ],
-      },
       {
         title: "Adaptive AI Technology",
         items: [
           "Continuously learns from your interactions and data.",
-          "Initiates conversations and reminds you of tasks.",
           "Provides personalized recommendations.",
-          "Monitors real-time health data and manages appointments.",
+          "Initiates conversations based on real-time data received.",
         ],
       },
       {
-        title: "Data Privacy & Ownership",
+        title: "Interactive & Flexible Communication",
         items: [
-          "Continuously learns from your interactions and data.",
-          "Initiates conversations and reminds you of tasks.",
-          "Provides personalized recommendations.",
-          "Monitors real-time health data and manages appointments.",
+          "Built with Natural Language Processing.",
+          "Engaging, lifelike conversations with anyone.",
+          "Connect through text and voice via your preferred applications.",
+        ],
+      },
+      {
+        title: "Built For Developers",
+        items: [
+          "Developers have the tools to create custom features and extensions within VAI OS.",
+          "Marketplace for extensions developed.",
         ],
       },
     ],
@@ -168,24 +189,23 @@ const tabsData = [
       {
         title: "Health Monitoring",
         items: [
-          "Integrates with Vyvo devices, like the BioSense Ring.",
-          "Tracks and analyzes real-time health data.",
-          "Sends alerts for urgent health issues.",
+          "Integrated with Vyvo Tech, such as the BioSense Ring.",
+          "Monitors and analyzes real-time health data.",
+          "Reaches out with alerts or suggestions based on the data received.",
         ],
       },
       {
         title: "Personalized Suggestions",
         items: [
-          "Analyzes your habits and data.",
-          "Provides suggestions to improve daily life.",
+          "Analyzes your data to learn more about you and make recommendations tailored to you.",
+          "Personalized health advice to fit your needs.",
         ],
       },
       {
-        title: "Timely Reminders",
+        title: "Productivity Booster",
         items: [
-          "Reminds you of important tasks based on your schedule.",
-          "Prompts you to take vitamins and get daily steps.",
-          "Follows up on emails at the right time.",
+          "Helps you work by assisting with writing emails, reports, and much more.",
+          "Intuitive calendar and task management, keeping you prepared and ready to go.",
         ],
       },
     ],
@@ -193,7 +213,7 @@ const tabsData = [
   {
     id: 3,
     icon: ChartIcon,
-    label: "Your Data, Your Control",
+    label: "Built on Blockchain",
     sections: [
       {
         title: "Blockchain Security",

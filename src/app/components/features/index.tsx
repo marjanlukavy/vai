@@ -226,7 +226,7 @@ const Features = () => {
           onScroll={handleScroll}
         >
           <div className="flex flex-col gap-[124px]">
-            <div className="max-w-[900px] w-full flex flex-col gap-[100px]">
+            <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
               {tabsData.map((tab, tabIndex) => (
                 <motion.div
                   key={tab.id}
@@ -242,11 +242,11 @@ const Features = () => {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{
                         opacity: sectionInViews[tabIndex] ? 1 : 0,
-                        y: sectionInViews[tabIndex] ? 0 : 30,
+                        y: sectionInViews[tabIndex] ? 100 : 30,
                       }}
                       transition={{
-                        duration: 0.5,
-                        delay: tabIndex * 0.2,
+                        duration: 1.5,
+                        delay: tabIndex * 2.2,
                       }}
                       className="w-full flex flex-col md:flex-row items-start justify-between"
                     >
@@ -288,7 +288,7 @@ const Features = () => {
 
 export default Features;
 
-const Icon1 = ({ className }: { className?: string }) => {
+export const Icon1 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
@@ -371,7 +371,7 @@ const Icon1 = ({ className }: { className?: string }) => {
     </svg>
   );
 };
-const Icon2 = ({ className }: { className?: string }) => {
+export const Icon2 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
@@ -446,7 +446,7 @@ const Icon2 = ({ className }: { className?: string }) => {
   );
 };
 
-const Icon3 = ({ className }: { className?: string }) => {
+export const Icon3 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
