@@ -29,7 +29,7 @@ const Statement = () => {
         className="min-h-[568px] lg:h-screen grid place-content-center relative"
         id="statement-section"
       >
-        <div className="absolute w-full flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
+        <div className="absolute w-full hidden md:flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
           {icons.map((icon, index) => {
             const opacity = useTransform(
               scrollYProgress,
@@ -76,7 +76,7 @@ const Paragraph = ({ paragraph }) => {
   return (
     <p
       ref={container}
-      className="flex text-[40px] leading-[48px] p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap"
+      className="flex text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] px-4 md:p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap"
     >
       {words.map((word, i) => {
         const start = i / words.length;
@@ -95,7 +95,7 @@ const Word = ({ children, progress, range }) => {
   const amount = range[1] - range[0];
   const step = amount / children.length;
   return (
-    <span className="relative mr-3 mt-3 bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8] text-center bg-clip-text text-transparent">
+    <span className="relative mr-2 md:mr-3 md:mt-3 bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8] text-center bg-clip-text text-transparent">
       {children.split("").map((char, i) => {
         const start = range[0] + i * step;
         const end = range[0] + (i + 1) * step;
