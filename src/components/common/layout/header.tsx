@@ -157,7 +157,7 @@ const Header = () => {
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
-            className="fixed inset-0 z-50 top-[96px] flex items-start justify-center"
+            className="fixed inset-0 z-[100] top-[96px] flex items-start justify-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -225,7 +225,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black z-40 pt-24"
+            className="fixed inset-0 bg-black z-[100] pt-24"
           >
             <div className="max-w-7xl mx-auto px-4">
               <nav className="flex flex-col items-center gap-8 pt-12">

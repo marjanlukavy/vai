@@ -53,7 +53,7 @@ const Footer = () => {
               <Link
                 key={index}
                 href={item.href}
-                className="font-nb text-[24px] leading-[26.4px] bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-white to-white bg-clip-text text-transparent"
+                className="font-nb text-[24px] leading-[26.4px] transition-all duration-300 ease-in-out gradient-text"
               >
                 {item.label}
               </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className="font-nb text-[24px] leading-[26.4px] bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-white to-white bg-clip-text text-transparent"
+                  className="font-nb text-[24px] leading-[26.4px] text-white transition-all duration-300 ease-in-out gradient-text"
                 >
                   {item.label}
                 </Link>
@@ -83,7 +83,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={item.href}
-                  className="font-nb text-[24px] leading-[26.4px] bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-white to-white bg-clip-text text-transparent"
+                  className="font-nb text-[24px] leading-[26.4px] transition-all duration-300 ease-in-out gradient-text"
                 >
                   {item.label}
                 </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
               <Link
                 href={"#"}
                 key={index}
-                className="text-white/60 hover:text-white transition-all duration-300 text-[16px] leading-[20px] font-light font-nb tracking-[-]"
+                className="text-white/60 hover:text-white transition-all gradient-text duration-300 text-[16px] leading-[20px] font-light font-nb tracking-[-]"
               >
                 {link.label}
               </Link>

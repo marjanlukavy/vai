@@ -43,7 +43,7 @@ const ThinkingStage = () => {
           ease: [0.16, 1, 0.3, 1], // Easing for smooth animation
         }}
         className={clsx(
-          "flex justify-center gap-[4px] w-[140px] md:w-fit",
+          "flex justify-center gap-2 w-[140px] md:w-fit",
           "mt-[72px] md:mt-[42px] px-[30px] py-[13px] md:py-[20px] backdrop-blur-[10px] bg-[rgba(119,169,232,0.16)] rounded-[16px]"
         )}
         style={{
@@ -51,17 +51,27 @@ const ThinkingStage = () => {
             "6px 80px 80px 0px rgba(148, 168, 237, 0.02) inset, 0px -1px 1px 0px rgba(148, 168, 237, 0.20) inset, 0px 1px 1px 0px rgba(148, 168, 237, 0.20) inset",
         }}
       >
-        <SlashIcon
-          opacity={
-            activeIndex === 0 || activeIndex === 1 || activeIndex === 2
-              ? "1"
-              : "0.3"
-          }
+        <div
+          className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-[#94A8ED] to-[#77A9E8]"
+          style={{
+            opacity:
+              activeIndex === 0 || activeIndex === 1 || activeIndex === 2
+                ? 1
+                : 0.3,
+          }}
         />
-        <SlashIcon
-          opacity={activeIndex === 1 || activeIndex === 2 ? "1" : "0.3"}
+        <div
+          className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-[#94A8ED] to-[#77A9E8]"
+          style={{
+            opacity: activeIndex === 1 || activeIndex === 2 ? 1 : 0.3,
+          }}
         />
-        <SlashIcon opacity={activeIndex === 2 ? "1" : "0.3"} />
+        <div
+          className="w-[10px] h-[10px] rounded-full bg-gradient-to-r from-[#94A8ED] to-[#77A9E8]"
+          style={{
+            opacity: activeIndex === 2 ? 1 : 0.3,
+          }}
+        />
       </motion.div>
     </>
   );

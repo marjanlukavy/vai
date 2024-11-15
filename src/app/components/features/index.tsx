@@ -148,141 +148,150 @@ const Features = () => {
   }
 
   return (
-    <section className=" rounded-[24px] pb-10 bg-[#050505] w-full flex items-center justify-center flex-col px-6 md:px-[100px]">
-      <div className="bg-[#050505] w-full flex items-center justify-center sticky top-0 pt-[120px] z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-[40px] md:text-[64px] leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px]  text-white max-w-[649px] font-nb"
-        >
-          <span className="text-[#94A8ED]">A Companion That</span> Anticipates
-          Your Needs
-        </motion.h2>
-      </div>
-      <div className="flex items-start justify-center w-full gap-[130px]">
-        <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px]">
-          <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
-            Features of VAI
-          </span>
-          <div className="flex flex-col gap-6">
-            {tabsData.map((tab, index) => (
-              <motion.div
-                key={tab.id}
-                animate={{
-                  opacity: activeTab === index ? 1 : 0.7,
-                  scale: activeTab === index ? 1.05 : 1,
-                }}
-                transition={{ duration: 0.3 }}
-                className="flex gap-3 items-center"
-              >
-                <div
-                  className={`size-12 shrink-0 rounded-full ${
-                    activeTab === index
-                      ? "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8]"
-                      : "bg-[#FCFCFE]"
-                  } grid place-content-center transition-colors duration-300`}
-                >
-                  {index === 0 ? (
-                    <Icon1
-                      className={`${
-                        activeTab === index
-                          ? "stroke-[#fff]"
-                          : "stroke-[#2A5FDD]"
-                      }`}
-                    />
-                  ) : index === 1 ? (
-                    <Icon2
-                      className={`${
-                        activeTab === index
-                          ? "stroke-[#fff]"
-                          : "stroke-[#2A5FDD]"
-                      }`}
-                    />
-                  ) : (
-                    <Icon3
-                      className={`${
-                        activeTab === index
-                          ? "stroke-[#fff]"
-                          : "stroke-[#2A5FDD]"
-                      }`}
-                    />
-                  )}
-                </div>
-                <span
-                  className={`text-[16px] leading-[20px] font-nb ${
-                    activeTab === index ? "text-[#94A8ED]" : "text-black"
-                  } transition-colors duration-300`}
-                >
-                  {tab.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+    <div className="relative  bg-[#050505]">
+      <section className=" rounded-[24px] relative z-20 pb-10  w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
+        <div className=" w-full flex items-center justify-center sticky top-0 pt-[120px] z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-[40px] md:text-[64px] leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px]  text-white max-w-[649px] font-nb"
+          >
+            <span className="text-[#94A8ED]">A Companion That</span> Anticipates
+            Your Needs
+          </motion.h2>
         </div>
-
-        <div
-          className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[500px]"
-          onScroll={handleScroll}
-        >
-          <div className="flex flex-col gap-[124px]">
-            <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
-              {tabsData.map((tab, tabIndex) => (
+        <div className="flex items-start justify-center w-full gap-[130px]">
+          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px]">
+            <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
+              Features of VAI
+            </span>
+            <div className="flex flex-col gap-6">
+              {tabsData.map((tab, index) => (
                 <motion.div
                   key={tab.id}
-                  ref={sectionRefs[tabIndex]}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: sectionInViews[tabIndex] ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="space-y-20"
+                  animate={{
+                    opacity: activeTab === index ? 1 : 0.7,
+                    scale: activeTab === index ? 1.05 : 1,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="flex gap-3 items-center"
                 >
-                  {tab.sections.map((section, sectionIndex) => (
-                    <motion.div
-                      key={sectionIndex}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{
-                        opacity: sectionInViews[tabIndex] ? 1 : 0,
-                        y: sectionInViews[tabIndex] ? 100 : 30,
-                      }}
-                      transition={{
-                        duration: 1.5,
-                        delay: tabIndex * 0.6,
-                      }}
-                      className="w-full flex flex-col md:flex-row items-start justify-between"
-                    >
-                      <span className="max-w-[186px] w-full font-nb text-[24px] leading-[28px] font-normal text-white mb-4 md:mb-0">
-                        {section.title}
-                      </span>
-                      <div className="flex flex-col w-full gap-[10px] max-w-[443px]">
-                        {section.items.map((item, itemIndex) => (
-                          <motion.div
-                            key={itemIndex}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{
-                              opacity: sectionInViews[tabIndex] ? 1 : 0,
-                              x: sectionInViews[tabIndex] ? 0 : -20,
-                            }}
-                            transition={{
-                              duration: 0.5,
-                              delay: itemIndex * 0.1,
-                            }}
-                            className="w-full flex items-center gap-8"
-                          >
-                            <span className="cursor-pointer bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-[#9DA2B3] to-[#9DA2B3] bg-clip-text text-transparent font-nb text-[16px] leading-[20px] font-light">
-                              {item}
-                            </span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  ))}
+                  <div
+                    className={`size-12 shrink-0 rounded-full ${
+                      activeTab === index
+                        ? "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8]"
+                        : "bg-[#FCFCFE]"
+                    } grid place-content-center transition-colors duration-300`}
+                  >
+                    {index === 0 ? (
+                      <Icon1
+                        className={`${
+                          activeTab === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    ) : index === 1 ? (
+                      <Icon2
+                        className={`${
+                          activeTab === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    ) : (
+                      <Icon3
+                        className={`${
+                          activeTab === index
+                            ? "stroke-[#fff]"
+                            : "stroke-[#2A5FDD]"
+                        }`}
+                      />
+                    )}
+                  </div>
+                  <span
+                    className={`text-[16px] leading-[20px] font-nb ${
+                      activeTab === index
+                        ? "text-[#94A8ED]"
+                        : "text-transparent"
+                    } transition-colors duration-300`}
+                  >
+                    {tab.label}
+                  </span>
                 </motion.div>
               ))}
             </div>
           </div>
+
+          <div
+            className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[500px]"
+            onScroll={handleScroll}
+          >
+            <div className="flex flex-col gap-[124px]">
+              <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
+                {tabsData.map((tab, tabIndex) => (
+                  <motion.div
+                    key={tab.id}
+                    ref={sectionRefs[tabIndex]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: sectionInViews[tabIndex] ? 1 : 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="space-y-20"
+                  >
+                    {tab.sections.map((section, sectionIndex) => (
+                      <motion.div
+                        key={sectionIndex}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{
+                          opacity: sectionInViews[tabIndex] ? 1 : 0,
+                          y: sectionInViews[tabIndex] ? 100 : 30,
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          delay: tabIndex * 0.6,
+                        }}
+                        className="w-full flex flex-col md:flex-row items-start justify-between"
+                      >
+                        <span className="max-w-[186px] w-full font-nb text-[24px] leading-[28px] font-normal text-white mb-4 md:mb-0">
+                          {section.title}
+                        </span>
+                        <div className="flex flex-col w-full gap-[10px] max-w-[443px]">
+                          {section.items.map((item, itemIndex) => (
+                            <motion.div
+                              key={itemIndex}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{
+                                opacity: sectionInViews[tabIndex] ? 1 : 0,
+                                x: sectionInViews[tabIndex] ? 0 : -20,
+                              }}
+                              transition={{
+                                duration: 0.5,
+                                delay: itemIndex * 0.1,
+                              }}
+                              className="w-full flex items-center gap-8"
+                            >
+                              <span className="cursor-pointer bg-gradient-to-l hover:from-[#2A5FDD] hover:to-[#77A9E8] from-[#9DA2B3] to-[#9DA2B3] bg-clip-text text-transparent font-nb text-[16px] leading-[20px] font-light">
+                                {item}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <img
+        src="/Preloder-back.gif"
+        alt="Preloder-back"
+        className="fixed w-full top-0 left-0 h-full"
+      />
+    </div>
   );
 };
 

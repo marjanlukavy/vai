@@ -1,133 +1,121 @@
+//@ts-nocheck
 "use client";
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const Statement = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, {
-    once: true,
-    amount: 0.3,
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
   });
+
+  const icons = [
+    { src: "/statement/first.svg", range: [0, 0.25, 0.35, 0.45] },
+    { src: "/statement/second.svg", range: [0.25, 0.45, 0.55, 0.65] },
+    { src: "/statement/third.svg", range: [0.45, 0.65, 0.75, 0.85] },
+    { src: "/statement/last.svg", range: [0.65, 0.85, 0.95, 1] },
+  ];
 
   const text =
-    "VAI OS is a secure Web3 AI operating system built to be your Life CoPilot. It simplifies the way you approach your work, health, and more, allowing you to focus on what matters most.".split(
-      ""
-    );
-
-  const imageVariants = {
-    initial: {
-      opacity: 0,
-      y: 100,
-    },
-    animate: {
-      opacity: [0, 1, 1, 0],
-      y: [100, 0, -50, -100],
-    },
-  };
-
-  const getTransition = (delay: number) => ({
-    duration: 4,
-    delay: isInView ? 1 + delay : 0, // Added 1 second base delay
-    ease: [0.16, 1, 0.3, 1],
-    times: [0, 0.3, 0.7, 1],
-  });
+    "VAI OS is a secure Web3 AI operating system built to be your Life CoPilot. It simplifies the way you approach your work, health, and more, allowing you to focus on what matters most.";
 
   return (
-    <section
-      ref={sectionRef}
-      className="min-h-[568px] lg:h-screen grid place-content-center relative"
-      id={"statement-section"}
+    <div className="bg-black z-10 relative w-full">
+      <section
+        ref={sectionRef}
+        className="min-h-[568px] lg:h-screen grid place-content-center relative"
+        id="statement-section"
+      >
+        <div className="absolute w-full flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
+          {icons.map((icon, index) => {
+            const opacity = useTransform(
+              scrollYProgress,
+              icon.range,
+              [0, 1, 1, 0]
+            );
+
+            const yPos = useTransform(
+              scrollYProgress,
+              icon.range,
+              [100, 0, 0, -100]
+            );
+
+            return (
+              <motion.div
+                key={icon.src}
+                style={{
+                  opacity,
+                  y: yPos,
+                }}
+                className={index === 3 ? "absolute right-0" : ""}
+              >
+                <div className="md:size-12 size-6 relative">
+                  <Image src={icon.src} alt={`Icon ${index + 1}`} fill />
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+        <Paragraph paragraph={text} />
+      </section>
+    </div>
+  );
+};
+
+const Paragraph = ({ paragraph }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start 0.9", "start 0.05"],
+  });
+
+  const words = paragraph.split(" ");
+  return (
+    <p
+      ref={container}
+      className="flex text-[40px] leading-[48px] p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap"
     >
-      <div className="relative">
-        {/* SVG Images Container */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3, delay: 1 }} // Added delay here too
-          className="absolute w-full flex justify-between items-center mx-auto -top-[70px] left-0 right-0 max-w-[500px]"
-        >
-          <motion.div
-            variants={imageVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={getTransition(0.2)}
-          >
-            <div className="md:size-12 size-6 relative">
-              <Image src="/statement/first.svg" alt="Last Icon" fill />
-            </div>
-          </motion.div>
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = start + 1 / words.length;
+        return (
+          <Word key={i} progress={scrollYProgress} range={[start, end]}>
+            {word}
+          </Word>
+        );
+      })}
+    </p>
+  );
+};
 
-          <motion.div
-            variants={imageVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={getTransition(text.length * 0.08 * 0.33)}
-          >
-            <div className="md:size-12 size-6 relative">
-              <Image src="/statement/second.svg" alt="Last Icon" fill />
-            </div>
-          </motion.div>
+const Word = ({ children, progress, range }) => {
+  const amount = range[1] - range[0];
+  const step = amount / children.length;
+  return (
+    <span className="relative mr-3 mt-3 bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8] text-center bg-clip-text text-transparent">
+      {children.split("").map((char, i) => {
+        const start = range[0] + i * step;
+        const end = range[0] + (i + 1) * step;
+        return (
+          <Char key={`c_${i}`} progress={progress} range={[start, end]}>
+            {char}
+          </Char>
+        );
+      })}
+    </span>
+  );
+};
 
-          <motion.div
-            variants={imageVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={getTransition(text.length * 0.08 * 0.56)}
-          >
-            <div className="md:size-12 size-6 relative">
-              <Image src="/statement/third.svg" alt="Last Icon" fill />
-            </div>
-          </motion.div>
-
-          <motion.div
-            variants={imageVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={getTransition(text.length * 0.08 * 0.95)}
-            className="absolute right-0"
-          >
-            <div className="md:size-12 size-6 relative">
-              <Image src="/statement/last.svg" alt="Last Icon" fill />
-            </div>
-          </motion.div>
-        </motion.div>
-        <p className="text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] tracking-[-1.2px] font-light max-w-[290px] md:max-w-[842px] text-center relative font-nb">
-          {text.map((char, i) => (
-            <motion.span
-              key={i}
-              initial={{
-                color: "#262626",
-              }}
-              animate={
-                isInView
-                  ? {
-                      background: "linear-gradient(to right, #2A5FDD, #77A9E8)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }
-                  : {
-                      color: "#262626",
-                    }
-              }
-              transition={{
-                duration: 0.5,
-                delay: isInView ? 1 + i * 0.08 : 0, // Added 1 second delay here too
-                ease: "easeInOut",
-              }}
-              className="inline-block bg-clip-text"
-              style={{
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-              }}
-            >
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </p>
-      </div>
-    </section>
+const Char = ({ children, progress, range }) => {
+  const opacity = useTransform(progress, range, [0, 1]);
+  return (
+    <span>
+      <span className="absolute text-center text-[#FFFFFF26]">{children}</span>
+      <motion.span style={{ opacity }}>{children}</motion.span>
+    </span>
   );
 };
 

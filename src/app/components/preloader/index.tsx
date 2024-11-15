@@ -88,7 +88,7 @@ const Preloader = () => {
         />
         <h2
           className={
-            "whitespace-nowrap text-[20px] md:text-[24px] font-[300] leading-[120%] tracking-[-0.72px] text-white font-nb absolute z-[100] top-[75%] md:top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            "whitespace-nowrap text-[20px] md:text-[24px] font-[300] leading-[120%] tracking-[-0.72px] bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent font-nb absolute z-[100] top-[75%] md:top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           }
         >
           Loading Intelligence...
@@ -121,7 +121,7 @@ const Preloader = () => {
         {/* Display the animated percentage text */}
         <h2
           className={
-            "text-[16px] md:text-[32px] font-[300] leading-[125%] md:leading-[90%] tracking-[-0.48px] md:tracking-[-1px] text-white font-nb"
+            "text-[16px] md:text-[32px] font-[300] leading-[125%] md:leading-[90%] tracking-[-0.48px] md:tracking-[-1px] text-[#77A9E8] font-nb"
           }
         >
           AI loading
@@ -129,7 +129,7 @@ const Preloader = () => {
         </h2>
         <h2
           className={
-            "text-[16px] md:text-[32px] font-[300] leading-[125%] md:leading-[90%] tracking-[-0.48px] md:tracking-[-1px] text-white font-nb"
+            "text-[16px] md:text-[32px] font-[300] leading-[125%] md:leading-[90%] tracking-[-0.48px] md:tracking-[-1px] text-[#77A9E8] font-nb"
           }
         >
           <Counter from={0} to={100} />

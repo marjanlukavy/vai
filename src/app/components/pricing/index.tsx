@@ -15,9 +15,9 @@ const Pricing = () => {
       <div className="relative z-10 max-w-[825px] w-full mx-auto flex flex-col gap-8">
         <h2 className="font-nb text-[24px] leading-[28px] md:text-[56px] font-light md:leading-[60px] tracking-[-1.68px] text-white max-w-[547px] mx-auto text-center">
           Tailored Plans for Your{" "}
-          <span className="bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent">
+          {/* <span className="bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent">
             Life CoPilot
-          </span>
+          </span> */}
         </h2>
 
         <div className="flex flex-col gap-4 md:gap-[63px] justify-center items-center w-full">

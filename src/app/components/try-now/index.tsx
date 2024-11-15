@@ -50,19 +50,12 @@ const TryNow = () => {
           Manage your life, work, and health effortlessly with VAI OS.
         </motion.p>
 
-        <motion.div
-          style={{
-            scale: buttonScale,
-            opacity: buttonOpacity,
-          }}
-        >
-          <SlashButton
-            showIcon={false}
-            label="Try now"
-            className="gap-4 !bg-[#77A9E829] py-[19px] test mx-auto"
-            labelClassName="!tracking-[-0.2px]"
-          />
-        </motion.div>
+        <SlashButton
+          showIcon={false}
+          label="Try now"
+          className="gap-4 !bg-[#77A9E829] py-[19px] test mx-auto"
+          labelClassName="!tracking-[-0.2px]"
+        />
       </div>
 
       <img

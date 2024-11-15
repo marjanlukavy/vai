@@ -37,13 +37,17 @@ const FAQCard = ({
     >
       {/* Line */}
       <motion.div
-        className="w-[3px] md:w-[4px] bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] rounded-full absolute left-0"
+        className={`w-[3px] md:w-[4px] ${
+          isOpen
+            ? "bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8]"
+            : "!bg-[#94A8ED29]"
+        } rounded-full absolute left-0`}
         animate={{
-          height: isOpen ? "100%" : "64px",
+          height: isOpen ? "100px" : "64px",
         }}
         transition={{ duration: 0.3 }}
       >
-        <motion.div className="w-full bg-gradient-to-b from-[#2A5FDD] to-[#77A9E8]" />
+        <motion.div className={`w-full  `} />
       </motion.div>
 
       <div className="flex gap-4 md:gap-6 pl-6 md:pl-12 items-center justify-between w-full">
@@ -118,7 +122,7 @@ const FAQ = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-10 md:gap-[56px] w-full items-center justify-center max-w-[766px]">
+        <div className="flex flex-col gap-10 md:gap-[80px] w-full items-center justify-center max-w-[766px]">
           {faqItems.map((item, index) => (
             <FAQCard
               key={item.id}

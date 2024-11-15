@@ -102,3 +102,23 @@ button:hover {
     0px 1px 1px 0px rgba(148, 168, 237, 0.2) inset;
   backdrop-filter: blur(75.80000305175781px);
 }
+
+.gradient-text {
+  color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #fff,
+    #fff 0%,
+    #2a5fdd 100%,
+    #77a9e8
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
+.gradient-text:hover {
+  background-position: top left 100%;
+}
