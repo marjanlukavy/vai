@@ -136,6 +136,7 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
         <SlashButton
           label={`Try ${activeTab === "pro" ? "Pro " : ""}Now`}
           className="py-5 px-[30px] gap-4"
+          showIcon={false}
         />
       </motion.div>
     </AnimatePresence>

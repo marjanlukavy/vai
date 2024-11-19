@@ -30,7 +30,7 @@ const BannerTitle = ({ words }: BannerTitleProps) => {
             delay: i * 0.15,
           }}
           key={i}
-          className="bg-gradient-to-r from-[#94A8ED] to-[#FFFFFF] bg-clip-text text-transparent"
+          className="banner-gradient-text"
         >
           {word}
         </motion.span>

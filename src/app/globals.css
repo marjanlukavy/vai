@@ -116,9 +116,108 @@ button:hover {
   -webkit-text-fill-color: transparent;
   background-size: 300% 100%;
   background-position: top left;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .gradient-text:hover {
   background-position: top left 100%;
+}
+
+.banner-gradient-text {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
+.card-shadow {
+  box-shadow: 0px 0px 12.61px 0px #f8f8f840 inset;
+  backdrop-filter: blur(400px);
+}
+
+.card-1-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(222, 72%, 52%, 0.5) 9.78%,
+    /* solid color */ rgba(42, 95, 221, 0) 48.06%,
+    /* more transparent blue */ rgba(42, 95, 221, 0) 67.19%,
+    /* adjusted opacity */ rgba(42, 95, 221, 0.15) 105.47%
+  );
+}
+
+.card-1-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(222, 72%, 52%, 0.507) 0%,
+    rgba(42, 95, 221, 0) 100%
+  );
+}
+
+.card-2-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hwb(222 16% 13% / 0.508) 9.78%,
+    rgba(42, 95, 221, 0) 48.06%,
+    rgba(42, 95, 221, 0) 67.19%,
+    rgba(42, 95, 221, 0.4) 105.47%
+  );
+}
+
+.card-2-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(245, 100%, 67%, 0.497) 0%,
+    rgba(99, 85, 255, 0) 100%
+  );
+}
+
+.card-3-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(213, 71%, 69%, 0.502) 9.78%,
+    rgba(119, 169, 232, 0) 48.06%,
+    rgba(119, 169, 232, 0) 67.19%,
+    rgba(119, 169, 232, 0.4) 105.47%
+  );
+}
+
+.card-3-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    hsla(213, 71%, 69%, 0.5) 0%,
+    rgba(119, 169, 232, 0) 100%
+  );
+}
+
+.card-3-tag {
+  background: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+}
+
+.card-4-gradient {
+  background: linear-gradient(
+    166.34deg,
+    hsla(336, 100%, 50%, 0.504) 9.78%,
+    rgba(255, 0, 102, 0) 48.06%,
+    rgba(255, 0, 102, 0) 67.19%,
+    rgba(255, 0, 102, 0.4) 105.47%
+  );
+}
+
+.card-4-inner-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 0, 102, 0.6) 0%,
+    rgba(255, 0, 102, 0) 100%
+  );
 }

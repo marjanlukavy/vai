@@ -51,7 +51,7 @@ const FAQCard = ({
       </motion.div>
 
       <div className="flex gap-4 md:gap-6 pl-6 md:pl-12 items-center justify-between w-full">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <motion.div
             className="flex flex-col"
             animate={{

@@ -148,9 +148,9 @@ const Features = () => {
   }
 
   return (
-    <div className="relative  bg-[#050505]">
-      <section className=" rounded-[24px] relative z-20 pb-10  w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
-        <div className=" w-full flex items-center justify-center sticky top-0 pt-[120px] z-10">
+    <div className="relative  bg-[#050505] ">
+      <section className="rounded-[24px] relative z-20 pb-10  w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
+        <div className="w-full flex items-center justify-center pt-[120px] z-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

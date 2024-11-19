@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
@@ -9,7 +9,7 @@ const Statement = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    offset: ["start 0.01", "end 0.5"],
   });
 
   const icons = [
@@ -23,64 +23,60 @@ const Statement = () => {
     "VAI OS is a secure Web3 AI operating system built to be your Life CoPilot. It simplifies the way you approach your work, health, and more, allowing you to focus on what matters most.";
 
   return (
-    <div className="bg-black z-10 relative w-full">
-      <section
-        ref={sectionRef}
-        className="min-h-[568px] lg:h-screen grid place-content-center relative"
-        id="statement-section"
-      >
-        <div className="absolute w-full hidden md:flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
-          {icons.map((icon, index) => {
-            const opacity = useTransform(
-              scrollYProgress,
-              icon.range,
-              [0, 1, 1, 0]
-            );
+    <div
+      className="md:h-[6000px] h-[700px] flex items-center justify-center md:block bg-black w-full z-50 relative"
+      ref={sectionRef}
+    >
+      <div className="bg-black z-10 md:sticky top-0 w-full">
+        <section
+          className="h-full max-h-[568px] lg:h-screen grid place-content-center relative"
+          id="statement-section"
+        >
+          <div className="absolute w-full hidden md:flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
+            {icons.map((icon, index) => {
+              const opacity = useTransform(
+                scrollYProgress,
+                icon.range,
+                [0, 1, 1, 0]
+              );
 
-            const yPos = useTransform(
-              scrollYProgress,
-              icon.range,
-              [100, 0, 0, -100]
-            );
+              const yPos = useTransform(
+                scrollYProgress,
+                icon.range,
+                [100, 0, 0, -100]
+              );
 
-            return (
-              <motion.div
-                key={icon.src}
-                style={{
-                  opacity,
-                  y: yPos,
-                }}
-                className={index === 3 ? "absolute right-0" : ""}
-              >
-                <div className="md:size-12 size-6 relative">
-                  <Image src={icon.src} alt={`Icon ${index + 1}`} fill />
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-        <Paragraph paragraph={text} />
-      </section>
+              return (
+                <motion.div
+                  key={icon.src}
+                  style={{
+                    opacity,
+                    y: yPos,
+                  }}
+                  className={index === 3 ? "absolute right-0" : ""}
+                >
+                  <div className="md:size-12 size-6 relative">
+                    <Image src={icon.src} alt={`Icon ${index + 1}`} fill />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+          <Paragraph paragraph={text} scrollYProgress={scrollYProgress} />
+        </section>
+      </div>
     </div>
   );
 };
 
-const Paragraph = ({ paragraph }) => {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start 0.9", "start 0.05"],
-  });
-
+const Paragraph = ({ paragraph, scrollYProgress }) => {
   const words = paragraph.split(" ");
+
   return (
-    <p
-      ref={container}
-      className="flex text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] px-4 md:p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap"
-    >
+    <p className="flex text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] px-4 md:p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap">
       {words.map((word, i) => {
-        const start = i / words.length;
-        const end = start + 1 / words.length;
+        const start = i / (words.length / 0.9);
+        const end = start + 1 / (words.length / 0.9);
         return (
           <Word key={i} progress={scrollYProgress} range={[start, end]}>
             {word}

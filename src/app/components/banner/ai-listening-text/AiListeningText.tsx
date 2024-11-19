@@ -28,7 +28,7 @@ const AiListeningText = () => {
   }
 
   return (
-    <div className={clsx("absolute bottom-[15%] left-1/2 -translate-x-1/2")}>
+    <div className={clsx("absolute bottom-[10%] left-1/2 -translate-x-1/2")}>
       <span className="text-[#94A8ED] text-[16px] md:text-[24px] leading-[125%] md:leading-[120%] tracking-[-0.72px] font-light  font-nb flex">
         <AnimatePresence mode={"wait"}>
           {text.split("").map((char, index, arr) => (
