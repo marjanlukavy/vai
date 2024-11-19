@@ -2,15 +2,19 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <section className="min-h-[900px] flex relative flex-col items-center pt-[162px] 2xl:px-0 px-4">
-      <img src="/homepage/home.svg" alt="" />
+    <section className="min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4">
+      <img
+        src="/homepage/home.svg"
+        alt=""
+        className="px-10 sm:px-0 relative z-10"
+      />
       <img
         src="/Preloder-back.gif"
         alt=""
         className="absolute top-0 left-0 w-full h-full"
       />
 
-      <div className="grid grid-cols-2 2xl:grid-cols-4 gap-5 pt-[162px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px]">
         <div className="card-1-gradient p-[2.5px] rounded-[18px] card-shadow">
           <div className="p-4 rounded-[18px] card-1-inner-gradient relative">
             <img

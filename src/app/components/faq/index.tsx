@@ -154,25 +154,25 @@ const faqItems: FAQItem[] = [
     id: 1,
     question: "What is Vyvo OS?",
     description:
-      "Vyvo OS is an innovative operating system with AI elements, functioning as your personal assistant and tool for managing daily tasks, health, and data.",
+      "VAI OS is a secure Web3 AI operating system designed as your Life CoPilot, providing personalized assistance and insights to simplify your daily life.",
   },
   {
     id: 2,
-    question: "What are the main functions of Vyvo OS?",
+    question: "What are the main functions of VAI OS?",
     description:
-      "The main functions include AI-powered assistance, health tracking, data management, and personalized task organization.",
+      "VAI OS helps manage all kinds of tasks, as well as your health, schedule, and work by offering tailored answers, suggestions, proactive reminders, and real-time insights based on your unique needs.",
   },
   {
     id: 3,
-    question: "How does Vyvo OS use data for personalization?",
+    question: "How does VAI OS use data for personalization?",
     description:
-      "Vyvo OS utilizes advanced AI algorithms to analyze user data and provide personalized recommendations and insights.",
+      "VAI OS analyzes your biometric and lifestyle data from Vyvo wearables, learning from your habits and health to deliver insights and suggestions that fit your goals.",
   },
   {
     id: 4,
-    question: "Is it safe to use Vyvo OS in terms of data privacy?",
+    question: "Is it safe to use VAI OS in terms of data privacy?",
     description:
-      "We implement robust security measures and encryption to ensure your data remains private and protected.",
+      "Yes, VAI OS uses Vyvo Smart Chain’s blockchain technology to securely store and decentralize your data, ensuring you have full control and ownership of your personal information.",
   },
   // {
   //   id: 5,

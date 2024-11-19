@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SlashIcon } from "../../svg";
@@ -34,9 +34,17 @@ const Header = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
+
   return (
     <>
-      <header className="max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-50">
+      <header className="max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
         <motion.div
           className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
           initial={{ y: -20, opacity: 0 }}
@@ -129,7 +137,7 @@ const Header = () => {
         </motion.div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
+          className="relative bg-transparent focus:bg-transparent z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
         >
           <motion.span
             animate={{
