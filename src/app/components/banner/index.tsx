@@ -40,7 +40,7 @@ const Banner = () => {
 
   return (
     <div className="bg-black relative z-50 w-full">
-      <div className="max-w-[1280px]  w-full mx-auto px-[16px]">
+      <div className="max-w-[1280px] w-full mx-auto px-[16px] pb-20">
         <div className="h-[437px] overflow-hidden md:h-[600px] w-full flex justify-center relative">
           <AnimatePresence mode="wait">
             {!isVideoChanging && (

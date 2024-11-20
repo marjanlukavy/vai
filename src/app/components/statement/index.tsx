@@ -16,7 +16,7 @@ const Statement = () => {
     { src: "/statement/first.svg", range: [0, 0.25, 0.35, 0.45] },
     { src: "/statement/second.svg", range: [0.25, 0.45, 0.55, 0.65] },
     { src: "/statement/third.svg", range: [0.45, 0.65, 0.75, 0.85] },
-    { src: "/statement/last.svg", range: [0.65, 0.85, 0.95, 1] },
+    // { src: "/statement/last.svg", range: [0.65, 0.85, 0.95, 1] },
   ];
 
   const text =
@@ -32,7 +32,7 @@ const Statement = () => {
           className="h-full max-h-[568px] lg:h-screen grid place-content-center relative"
           id="statement-section"
         >
-          <div className="absolute w-full hidden md:flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
+          <div className="absolute w-full flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
             {icons.map((icon, index) => {
               const opacity = useTransform(
                 scrollYProgress,

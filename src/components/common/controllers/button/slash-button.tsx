@@ -18,7 +18,7 @@ const SlashButton = ({
   showIcon = true,
 }: ButtonProps) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <button
         type={type}
         onClick={onClick}

@@ -23,7 +23,7 @@ const TryNow = () => {
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen md:min-h-[900px] bg-black grid place-content-center relative overflow-hidden"
+      className="min-h-[612px] md:min-h-[900px] bg-black grid place-content-center relative overflow-hidden"
     >
       <div className="flex flex-col gap-4 md:gap-6 items-center relative z-50">
         <motion.h2
@@ -31,7 +31,7 @@ const TryNow = () => {
             y: titleY,
             opacity: titleOpacity,
           }}
-          className="font-nb text-[24px] leading-[28px] md:text-[56px] font-light md:leading-[60px] tracking-[-1.68px] text-white max-w-[185px] md:max-w-[715px] mx-auto text-center"
+          className="font-nb text-[32px] leading-[32px] md:text-[56px] font-light md:leading-[60px] tracking-[-1.68px] text-white max-w-[185px] md:max-w-[715px] mx-auto text-center"
         >
           Meet Your{" "}
           <span className="bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8] bg-clip-text text-transparent">
@@ -53,7 +53,7 @@ const TryNow = () => {
         <SlashButton
           showIcon={false}
           label="Try now"
-          className="gap-4 !bg-[#77A9E829] py-[19px] test mx-auto"
+          className="gap-4 !bg-[#77A9E829] py-[10px] test mx-auto !rounded-[16px] w-full grid place-content-center !max-w-[140px]"
           labelClassName="!tracking-[-0.2px]"
         />
       </div>

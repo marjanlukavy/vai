@@ -7,7 +7,8 @@ body {
   overscroll-behavior: none;
 }
 
-body {
+html {
+  scroll-behavior: smooth;
 }
 
 .main-shadow {
@@ -255,4 +256,19 @@ button:hover {
   box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
 
   backdrop-filter: blur(20px);
+}
+
+.link-gradient {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
 }

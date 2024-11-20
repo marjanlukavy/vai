@@ -148,7 +148,7 @@ const Features = () => {
   }
 
   return (
-    <div className="relative  bg-[#050505] ">
+    <div className="relative bg-[#050505]">
       <section className="rounded-[24px] relative z-20 pb-10  w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
         <div className="w-full flex items-center justify-center pt-[120px] z-10">
           <motion.h2
@@ -178,11 +178,11 @@ const Features = () => {
                   className="flex gap-3 items-center"
                 >
                   <div
-                    className={`size-12 shrink-0 rounded-full ${
+                    className={`size-12 shrink-0 rounded-full bg-[#FCFCFE] ${
                       activeTab === index
                         ? "bg-gradient-to-r from-[#2A5FDD] to-[#77A9E8]"
                         : "bg-[#FCFCFE]"
-                    } grid place-content-center transition-colors duration-300`}
+                    } grid place-content-center transition-colors duration-300 `}
                   >
                     {index === 0 ? (
                       <Icon1
@@ -301,8 +301,8 @@ export const Icon1 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
-      width="24"
-      height="24"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -384,8 +384,8 @@ export const Icon2 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
-      width="24"
-      height="24"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -459,8 +459,8 @@ export const Icon3 = ({ className }: { className?: string }) => {
   return (
     <svg
       className={className}
-      width="28"
-      height="28"
+      width="15"
+      height="15"
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

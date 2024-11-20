@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <>
       <div className="w-full bg-black">
-        <header className="max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
+        <header className="max-w-[1280px]  px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
           <motion.div
             className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
             initial={{ y: -20, opacity: 0 }}
@@ -61,7 +61,7 @@ const Header = () => {
           </motion.div>
 
           <motion.div
-            className="hidden lg:flex items-center w-full max-w-[470px]"
+            className="hidden lg:flex items-center w-full max-w-[676px]"
             initial={{ y: -20, opacity: 0, gap: "10px" }}
             animate={{ y: 0, opacity: 1, gap: "16px" }}
             transition={{
@@ -71,28 +71,35 @@ const Header = () => {
               opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
             }}
           >
-            <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
+            {/* <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
               <SlashIcon />
-            </div>
-            <nav className="px-[30px] py-3 main-shadow max-w-[414px] w-full flex justify-between rounded-[16px]">
+            </div> */}
+            <nav className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className={`text-sm transition-colors hover:text-gray-100 font-nb ${
+                  // onClick={(e) => handleScroll(e, link.href)}
+                  className={`relative text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
                     pathname === link.href.replace("#", "")
-                      ? "text-white font-medium"
-                      : "text-gray-400"
+                      ? "link-gradient font-medium link-bg bg-blend-lighten"
+                      : "text-white"
                   }`}
                 >
+                  {pathname === link.href.replace("#", "") && (
+                    <img
+                      src="/link-gradient.png"
+                      alt=""
+                      className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
+                    />
+                  )}
                   {link.label}
                 </Link>
               ))}
             </nav>
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
@@ -135,7 +142,12 @@ const Header = () => {
               </button>
               <div className="glow-effect"></div>
             </div>
-          </motion.div>
+          </motion.div> */}
+          <button className="main-shadow py-[15px] w-full max-w-[125px] bg-[#94A8ED0A] backdrop-blur-[20px] rounded-xl md:block hidden">
+            <span className=" text-[14px] leading-[18px] text-white">
+              Try now
+            </span>
+          </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="relative bg-transparent focus:bg-transparent z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
@@ -237,28 +249,35 @@ const Header = () => {
             className="fixed inset-0 bg-black z-[100] pt-24"
           >
             <div className="max-w-7xl mx-auto px-4">
-              <nav className="flex flex-col items-center gap-8 pt-12">
-                {menuItems.map((item, index) => (
+              <nav className="flex flex-col gap-5 pt-12">
+                {navLinksMobile.map((item, index) => (
                   <motion.a
-                    key={item.title}
+                    key={item.label}
                     href={item.href}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="text-white text-3xl font-light hover:text-gray-300 transition-colors"
+                    className={`text-white text-[16px] leading-[20px] font-light hover:text-gray-300 transition-colors ${
+                      pathname === item.href.replace("#", "")
+                        ? "link-gradient font-medium link-bg bg-blend-lighten"
+                        : "text-white"
+                    }`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.title}
+                    {item.label}
                   </motion.a>
                 ))}
-                <motion.button
+
+                {/* <motion.button
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: menuItems.length * 0.1 }}
-                  className="mt-8 px-8 py-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors"
+                  transition={{ delay: navLinksMobile.length * 0.1 }}
+                  className="main-shadow py-[15px] w-full max-w-[125px] bg-[#94A8ED0A] backdrop-blur-[20px] rounded-xl"
                 >
-                  Log in
-                </motion.button>
+                  <span className="text-[14px] leading-[18px] text-white">
+                    Try now
+                  </span>
+                </motion.button> */}
               </nav>
             </div>
           </motion.div>
@@ -316,9 +335,16 @@ const navigationData = [
   },
 ];
 
-const menuItems = [
-  { title: "About", href: "#about" },
-  { title: "Features", href: "#features" },
-  { title: "Pricing", href: "#pricing" },
-  { title: "How it works", href: "#how-it-works" },
+const navLinksMobile = [
+  { label: "Home", href: "/" },
+  { label: "VAI OS", href: "/vai-os" },
+  { label: "Vyvo Tech", href: "/vyvo-tech" },
+  { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
+  { label: "SocialFi", href: "/socialfi" },
+  { label: "Store", href: "/store" },
+  { label: "About us", href: "/about" },
+  { label: "Tokenomic", href: "/tokenomic" },
+  { label: "News", href: "/news" },
+  { label: "Events", href: "/events" },
+  { label: "Support", href: "/support" },
 ];

@@ -5,7 +5,6 @@ interface SlashIconProps {
   className?: string;
 }
 
-
 export const SlashIcon = ({ className, opacity }: SlashIconProps) => {
   return (
     <svg

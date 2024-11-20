@@ -7,7 +7,7 @@ const MobileFeatures = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px]">
+    <section className="bg-[#050505] min-h-[568px] px-4 py-[28px] rounded-[24px] pb-16">
       <div className="flex flex-col mb-[28px]">
         <h2 className="text-[24px] leading-[28px] font-nb font-light tracking-[-0.72px] text-center mb-[71px]">
           <span className="text-[#94A8ED] block mb-1">A Companion That</span>
@@ -33,8 +33,12 @@ const MobileFeatures = () => {
               >
                 <div className="flex items-center gap-[12px]">
                   <div
-                    className={`w-6 h-6 flex items-center justify-center
-                  ${activeAccordion === index ? "opacity-100" : "opacity-30"}`}
+                    className={`size-8 flex items-center justify-center rounded-full
+                  ${
+                    activeAccordion === index
+                      ? "vyvo-tech-bg-banner-tag"
+                      : "bg-[#FCFCFE]"
+                  }`}
                   >
                     {index === 0 ? (
                       <Icon1
@@ -62,15 +66,15 @@ const MobileFeatures = () => {
                       />
                     )}
                   </div>
-                  <span
-                    className={`font-nb text-[16px] leading-[20px] tracking-[-0.03em]
+                </div>
+                <span
+                  className={`font-nb text-[16px] leading-[20px] tracking-[-0.03em]
                   ${
                     activeAccordion === index ? "text-[#94A8ED]" : "text-white"
                   }`}
-                  >
-                    {tab.label}
-                  </span>
-                </div>
+                >
+                  {tab.label}
+                </span>
                 <motion.div
                   animate={{ rotate: activeAccordion === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -94,7 +98,7 @@ const MobileFeatures = () => {
                   >
                     <div className="pb-6  flex flex-col gap-4">
                       {tab.sections.map((section, sectionIndex) => (
-                        <div key={sectionIndex} className="flex flex-col gap-4">
+                        <div key={sectionIndex} className="flex flex-col gap-2">
                           <h3 className="font-nb text-[16px] leading-[20px] tracking-[-0.03em] text-white">
                             {section.title}
                           </h3>
@@ -108,7 +112,7 @@ const MobileFeatures = () => {
                                   duration: 0.3,
                                   delay: itemIndex * 0.1,
                                 }}
-                                className="text-[#fff]  text-[14px] leading-[18px] tracking-[-0.03em] font-light"
+                                className="text-[#9DA2B3] text-[14px] leading-[18px] tracking-[-0.03em] font-light"
                               >
                                 {item}
                               </motion.p>
