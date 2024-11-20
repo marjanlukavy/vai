@@ -122,7 +122,7 @@ const FAQ = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-10 md:gap-[80px] w-full items-center justify-center max-w-[766px]">
+        <div className="flex flex-col gap-10 md:gap-[80px] w-full items-center justify-center max-w-[766px] mt-4">
           {faqItems.map((item, index) => (
             <FAQCard
               key={item.id}
