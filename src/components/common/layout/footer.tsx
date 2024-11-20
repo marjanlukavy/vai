@@ -35,7 +35,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#000] relative py-[60px] rounded-t-[24px] px-4 2xl:px-0">
+    <footer className="bg-[#000] relative py-[60px]  px-4 2xl:px-0">
       <div className="max-w-[1280px] w-full mx-auto flex flex-col lg:flex-row justify-between gap-10">
         <div className="flex flex-col justify-between items-center sm:items-start mb-8 sm:mb-0">
           <motion.div className="relative w-[124.459px] h-[28.394px]">

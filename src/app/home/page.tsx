@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <section className="min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4">
+    <section className="min-h-[900px] flex relative flex-col items-center pt-[96px] md:pt-[162px] 2xl:px-0 px-4 bg-black">
       <img
         src="/homepage/home.svg"
         alt=""
@@ -14,7 +14,7 @@ const HomePage = () => {
         className="absolute top-0 left-0 w-full h-full"
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4 gap-5 pt-[96px] md:pt-[162px] pb-6 lg:pb-0">
         <div className="card-1-gradient p-[2.5px] rounded-[18px] card-shadow">
           <div className="p-4 rounded-[18px] card-1-inner-gradient relative">
             <img

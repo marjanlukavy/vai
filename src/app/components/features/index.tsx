@@ -161,8 +161,8 @@ const Features = () => {
             Your Needs
           </motion.h2>
         </div>
-        <div className="flex items-start justify-center w-full gap-[130px]">
-          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px]">
+        <div className="flex items-start justify-center w-full gap-[130px] ">
+          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px] pb-[400px]">
             <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
               Features of VAI
             </span>

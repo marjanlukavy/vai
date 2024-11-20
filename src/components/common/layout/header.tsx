@@ -44,124 +44,125 @@ const Header = () => {
 
   return (
     <>
-      <header className="max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
-        <motion.div
-          className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            delay: 0.6,
-            duration: 2.4,
-            ease: [0.16, 1, 0.3, 1],
-            opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-          }}
-        >
-          <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
-        </motion.div>
+      <div className="w-full bg-black">
+        <header className="max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 flex items-center justify-between relative z-[101]">
+          <motion.div
+            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              duration: 2.4,
+              ease: [0.16, 1, 0.3, 1],
+              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
+            }}
+          >
+            <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
+          </motion.div>
 
-        <motion.div
-          className="hidden lg:flex items-center w-full max-w-[470px]"
-          initial={{ y: -20, opacity: 0, gap: "10px" }}
-          animate={{ y: 0, opacity: 1, gap: "16px" }}
-          transition={{
-            delay: 0.6,
-            duration: 2.4,
-            ease: [0.16, 1, 0.3, 1],
-            opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-          }}
-        >
-          <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
-            <SlashIcon />
-          </div>
-          <nav className="px-[30px] py-3 main-shadow max-w-[414px] w-full flex justify-between rounded-[16px]">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleScroll(e, link.href)}
-                className={`text-sm transition-colors hover:text-gray-100 font-nb ${
-                  pathname === link.href.replace("#", "")
-                    ? "text-white font-medium"
-                    : "text-gray-400"
-                }`}
+          <motion.div
+            className="hidden lg:flex items-center w-full max-w-[470px]"
+            initial={{ y: -20, opacity: 0, gap: "10px" }}
+            animate={{ y: 0, opacity: 1, gap: "16px" }}
+            transition={{
+              delay: 0.6,
+              duration: 2.4,
+              ease: [0.16, 1, 0.3, 1],
+              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
+            }}
+          >
+            <div className="size-10 rounded-[12px] bg-[#94a8ed0a] backdrop-blur-[10px] main-shadow grid place-content-center">
+              <SlashIcon />
+            </div>
+            <nav className="px-[30px] py-3 main-shadow max-w-[414px] w-full flex justify-between rounded-[16px]">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className={`text-sm transition-colors hover:text-gray-100 font-nb ${
+                    pathname === link.href.replace("#", "")
+                      ? "text-white font-medium"
+                      : "text-gray-400"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              delay: 0.6,
+              duration: 2.4,
+              ease: [0.16, 1, 0.3, 1],
+              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
+            }}
+            className="lg:block hidden"
+          >
+            <div className="relative">
+              <button
+                type="button"
+                onClick={toggleModal}
+                className={`relative z-10 px-[30px] rounded-[12px] hover:rounded-[16px] bg-[#77A9E829] backdrop-blur-[10px] main-shadow flex items-center gap-2 py-[15px]`}
               >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </motion.div>
-
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            delay: 0.6,
-            duration: 2.4,
-            ease: [0.16, 1, 0.3, 1],
-            opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-          }}
-          className="lg:block hidden"
-        >
-          <div className="relative">
-            <button
-              type="button"
-              onClick={toggleModal}
-              className={`relative z-10 px-[30px] rounded-[12px] hover:rounded-[16px] bg-[#77A9E829] backdrop-blur-[10px] main-shadow flex items-center gap-2 py-[15px]`}
-            >
-              <span
-                className={`text-[16px] leading-[18px] tracking-[-0.16px] text-white`}
-              >
-                Menu
-              </span>
-              <div className="w-6 h-6 relative flex flex-col justify-center items-center">
-                <motion.div
-                  className="w-full h-[2px] bg-white rounded-full"
-                  animate={{
-                    rotate: isModalOpen ? 45 : 0,
-                    y: isModalOpen ? 1 : -4,
-                  }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-                <motion.div
-                  className="w-full h-[2px] bg-white rounded-full"
-                  animate={{
-                    rotate: isModalOpen ? -45 : 0,
-                    y: isModalOpen ? -2 : 4,
-                  }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-              </div>
-            </button>
-            <div className="glow-effect"></div>
-          </div>
-        </motion.div>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative bg-transparent focus:bg-transparent z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
-        >
-          <motion.span
-            animate={{
-              rotate: isOpen ? 45 : 0,
-              y: isOpen ? 8 : 0,
-            }}
-            className="w-6 h-0.5 bg-white block"
-          />
-          <motion.span
-            animate={{
-              opacity: isOpen ? 0 : 1,
-            }}
-            className="w-6 h-0.5 bg-white block"
-          />
-          <motion.span
-            animate={{
-              rotate: isOpen ? -45 : 0,
-              y: isOpen ? -8 : 0,
-            }}
-            className="w-6 h-0.5 bg-white block"
-          />
-        </button>
-      </header>
-
+                <span
+                  className={`text-[16px] leading-[18px] tracking-[-0.16px] text-white`}
+                >
+                  Menu
+                </span>
+                <div className="w-6 h-6 relative flex flex-col justify-center items-center">
+                  <motion.div
+                    className="w-full h-[2px] bg-white rounded-full"
+                    animate={{
+                      rotate: isModalOpen ? 45 : 0,
+                      y: isModalOpen ? 1 : -4,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                  <motion.div
+                    className="w-full h-[2px] bg-white rounded-full"
+                    animate={{
+                      rotate: isModalOpen ? -45 : 0,
+                      y: isModalOpen ? -2 : 4,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                </div>
+              </button>
+              <div className="glow-effect"></div>
+            </div>
+          </motion.div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative bg-transparent focus:bg-transparent z-50 w-10 h-10 flex lg:hidden flex-col justify-center items-center gap-1.5"
+          >
+            <motion.span
+              animate={{
+                rotate: isOpen ? 45 : 0,
+                y: isOpen ? 8 : 0,
+              }}
+              className="w-6 h-0.5 bg-white block"
+            />
+            <motion.span
+              animate={{
+                opacity: isOpen ? 0 : 1,
+              }}
+              className="w-6 h-0.5 bg-white block"
+            />
+            <motion.span
+              animate={{
+                rotate: isOpen ? -45 : 0,
+                y: isOpen ? -8 : 0,
+              }}
+              className="w-6 h-0.5 bg-white block"
+            />
+          </button>
+        </header>
+      </div>
       <AnimatePresence>
         {isModalOpen && (
           <motion.div

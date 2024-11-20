@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-start">
+    <main className="flex flex-col items-center justify-start bg-black">
       <Banner />
       <Statement />
       <div className="w-full relative">

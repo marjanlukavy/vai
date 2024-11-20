@@ -27,7 +27,7 @@ const Statement = () => {
       className="md:h-[6000px] h-[700px] flex items-center justify-center md:block bg-black w-full z-50 relative"
       ref={sectionRef}
     >
-      <div className="bg-black z-10 md:sticky top-0 w-full">
+      <div className="bg-black z-10 md:sticky top-[20%] w-full">
         <section
           className="h-full max-h-[568px] lg:h-screen grid place-content-center relative"
           id="statement-section"

@@ -8,7 +8,6 @@ body {
 }
 
 body {
-  background-color: #000000;
 }
 
 .main-shadow {
@@ -137,6 +136,21 @@ button:hover {
   transition: all 0.5s ease-in-out;
 }
 
+.vyvo-tech-gradient-text {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}
+
 .card-shadow {
   box-shadow: 0px 0px 12.61px 0px #f8f8f840 inset;
   backdrop-filter: blur(400px);
@@ -220,4 +234,25 @@ button:hover {
     rgba(255, 0, 102, 0.6) 0%,
     rgba(255, 0, 102, 0) 100%
   );
+}
+
+.vyvo-tech-bg-banner-tag {
+  background: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+  box-shadow: 0px 1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  box-shadow: 6px 80px 80px 0px #94a8ed05 inset;
+
+  backdrop-filter: blur(20px);
+}
+
+.vyvo-button {
+  box-shadow: 0px -1px 1px 0px #94a8ed33 inset;
+
+  backdrop-filter: blur(20px);
 }
