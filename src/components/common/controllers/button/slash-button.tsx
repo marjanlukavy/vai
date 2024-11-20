@@ -5,6 +5,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   className?: string;
+  containerStyles?: string;
   labelClassName?: string;
   showIcon?: boolean;
 }
@@ -16,9 +17,10 @@ const SlashButton = ({
   className = "",
   labelClassName = "",
   showIcon = true,
+  containerStyles,
 }: ButtonProps) => {
   return (
-    <div className="relative w-full">
+    <div className={`relative w-full ${containerStyles}`}>
       <button
         type={type}
         onClick={onClick}

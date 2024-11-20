@@ -77,7 +77,7 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-col gap-4 items-center"
       >
-        <div className="flex flex-col gap-1 md:gap-4 items-center">
+        <div className="flex flex-col gap-1 md:gap-4 items-center my-5 md:my-0">
           <div className="flex items-center gap-2 relative">
             <span className="font-nb text-[20px] leading-[24px] md:text-[40px] md:leading-[44px] tracking-[-1.2px] text-white">
               {plan.title}
@@ -90,7 +90,7 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
               </div>
             ) : null}
           </div>
-          <div className="flex gap-1 items-end justify-center">
+          <div className="flex gap-1 items-end justify-center mt-1">
             <span className="text-[#FFFFFF] md:text-[32px] text-[20px] leading-[24px] font-nb md:leading-[36px] tracking-[-0.96px]">
               ${plan.price}
             </span>
@@ -114,7 +114,7 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
                 delay: index * 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3"
             >
               <Image
                 src={feature.included ? "/icons/yes.svg" : "/icons/no.svg"}
@@ -135,7 +135,8 @@ const PricingContent = ({ activeTab }: { activeTab: string }) => {
 
         <SlashButton
           label={`Try ${activeTab === "pro" ? "Pro " : ""}Now`}
-          className="py-5 px-[30px] gap-4"
+          className="py-5 px-[30px] gap-4 !mx-auto"
+          containerStyles="!w-auto mt-5 md:mt-0"
           showIcon={false}
         />
       </motion.div>

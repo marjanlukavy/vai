@@ -25,7 +25,7 @@ const TryNow = () => {
       ref={sectionRef}
       className="min-h-[612px] md:min-h-[900px] bg-black grid place-content-center relative overflow-hidden"
     >
-      <div className="flex flex-col gap-4 md:gap-6 items-center relative z-50">
+      <div className="flex flex-col gap-6 md:gap-6 items-center relative z-50">
         <motion.h2
           style={{
             y: titleY,
@@ -55,6 +55,7 @@ const TryNow = () => {
           label="Try now"
           className="gap-4 !bg-[#77A9E829] py-[10px] test mx-auto !rounded-[16px] w-full grid place-content-center !max-w-[140px]"
           labelClassName="!tracking-[-0.2px]"
+          containerStyles="!w-auto"
         />
       </div>
 
