@@ -98,6 +98,7 @@ const tabsData = [
 
 const Features = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [isSticky, setIsSticky] = useState(false); // State for sticky position
   const sectionRefs = tabsData.map(() => useRef(null));
   const isMobile = useBreakpoint("lg");
 
@@ -108,13 +109,6 @@ const Features = () => {
     })
   );
 
-  const handleScroll = (e) => {
-    const { scrollTop, scrollHeight, clientHeight } = e.target;
-    if (scrollTop + clientHeight >= scrollHeight - 5) {
-      setActiveTab((prev) => (prev < tabsData.length - 1 ? prev + 1 : prev));
-    }
-  };
-
   useEffect(() => {
     const newActiveTab = sectionInViews.findIndex((isInView) => isInView);
     if (newActiveTab !== -1) {
@@ -122,34 +116,13 @@ const Features = () => {
     }
   }, [sectionInViews]);
 
-  useEffect(() => {
-    const handleScroll = (e) => {
-      const { scrollTop, clientHeight } = e.target;
-      const activeSection = sectionRefs.current.findIndex(
-        (ref) =>
-          ref.current &&
-          ref.current.offsetTop <= scrollTop + clientHeight / 2 &&
-          ref.current.offsetTop + ref.current.clientHeight > scrollTop
-      );
-      if (activeSection !== -1) setActiveTab(activeSection);
-    };
-
-    document
-      .querySelector("#scrollableContainer")
-      ?.addEventListener("scroll", handleScroll);
-    return () =>
-      document
-        .querySelector("#scrollableContainer")
-        ?.removeEventListener("scroll", handleScroll);
-  }, []);
-
   if (isMobile) {
     return <MobileFeatures />;
   }
 
   return (
-    <div className="relative bg-[#050505]">
-      <section className="rounded-[24px] relative z-20 pb-10  w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
+    <div className={`bg-[#050505]`}>
+      <section className="rounded-[24px] relative z-20 w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
         <div className="w-full flex items-center justify-center pt-[120px] z-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +135,7 @@ const Features = () => {
           </motion.h2>
         </div>
         <div className="flex items-start justify-center w-full gap-[130px] ">
-          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px] pb-[400px]">
+          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px] pb-[200px]">
             <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
               Features of VAI
             </span>
@@ -225,8 +198,8 @@ const Features = () => {
           </div>
 
           <div
-            className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[500px]"
-            onScroll={handleScroll}
+            className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[300px]"
+            // onScroll={handleScroll}
           >
             <div className="flex flex-col gap-[124px]">
               <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
@@ -234,17 +207,17 @@ const Features = () => {
                   <motion.div
                     key={tab.id}
                     ref={sectionRefs[tabIndex]}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: sectionInViews[tabIndex] ? 1 : 0 }}
+                    // initial={{ opacity: 0 }}
+                    // animate={{ opacity: sectionInViews[tabIndex] ? 1 : 0 }}
                     transition={{ duration: 0.5 }}
                     className="space-y-20"
                   >
                     {tab.sections.map((section, sectionIndex) => (
                       <motion.div
                         key={sectionIndex}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 1, y: 30 }}
                         animate={{
-                          opacity: sectionInViews[tabIndex] ? 1 : 0,
+                          // opacity: sectionInViews[tabIndex] ? 1 : 0,
                           y: sectionInViews[tabIndex] ? 100 : 30,
                         }}
                         transition={{
@@ -260,9 +233,9 @@ const Features = () => {
                           {section.items.map((item, itemIndex) => (
                             <motion.div
                               key={itemIndex}
-                              initial={{ opacity: 0, x: -20 }}
+                              initial={{ opacity: 1, x: -20 }}
                               animate={{
-                                opacity: sectionInViews[tabIndex] ? 1 : 0,
+                                // opacity: sectionInViews[tabIndex] ? 1 : 0,
                                 x: sectionInViews[tabIndex] ? 0 : -20,
                               }}
                               transition={{

@@ -272,3 +272,18 @@ button:hover {
   background-position: top left;
   transition: all 0.5s ease-in-out;
 }
+
+.link-hover:hover {
+  color: #fff;
+  background-image: radial-gradient(
+    36.21% 29.66% at 39.06% 38.97%,
+    #2a5fdd 0%,
+    #77a9e8 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 100%;
+  background-position: top left;
+  transition: all 0.5s ease-in-out;
+}

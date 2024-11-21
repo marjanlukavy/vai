@@ -13,6 +13,16 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number | null) => {
+    setActiveIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveIndex(null);
+  };
+
   const handleScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -75,74 +85,68 @@ const Header = () => {
               <SlashIcon />
             </div> */}
             <nav className="px-6 py-3 main-shadow max-w-[676px] w-full flex justify-between rounded-[16px] bg-[#77A9E80A] backdrop-blur-[20px]">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  // onClick={(e) => handleScroll(e, link.href)}
-                  className={`relative text-sm transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
-                    pathname === link.href.replace("#", "")
-                      ? "link-gradient font-medium link-bg bg-blend-lighten"
-                      : "text-white"
-                  }`}
-                >
-                  {pathname === link.href.replace("#", "") && (
-                    <img
-                      src="/link-gradient.png"
-                      alt=""
-                      className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
-                    />
-                  )}
-                  {link.label}
-                </Link>
-              ))}
+              <div className="container mx-auto flex justify-between items-center">
+                <ul className="flex space-x-8">
+                  {navLinks.map((link, index) => (
+                    <li
+                      key={index}
+                      className="relative"
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      <a
+                        href={link.href}
+                        className={`relative group text-sm gradient-text transition-colors text-[14px] font-nb leading-[18px] hover:text-gray-100 ${
+                          pathname === link.href.replace("#", "")
+                            ? "link-gradient font-medium link-bg bg-blend-lighten"
+                            : "text-white"
+                        }`}
+                      >
+                        <img
+                          src="/link-gradient.png"
+                          alt=""
+                          className="absolute hidden group-hover:block inset-0 m-auto h-full w-full transition-all duration-300 -z-10 scale-[3]"
+                        />
+                        {pathname === link.href.replace("#", "") && (
+                          <img
+                            src="/link-gradient.png"
+                            alt=""
+                            className="absolute inset-0 m-auto h-full w-full -z-10 scale-[2.5]"
+                          />
+                        )}
+                        {link.label}
+                      </a>
+                      {link.subMenu && (
+                        <AnimatePresence>
+                          {activeIndex === index && (
+                            <motion.ul
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute top-full left-0 main-shadow bg-[#00000080] backdrop-blur-[20px] rounded-[20px] z-10 space-y-3 p-4 mt-4 w-[178px]"
+                            >
+                              {link.subMenu.map((subLink, subIndex) => (
+                                <li key={subIndex}>
+                                  <a
+                                    href={subLink.href}
+                                    className={`relative transition-all gradient-text duration-300 text-[14px] font-nb tracking-[-0.01em] leading-[18px] text-[#FFFFFFB2] hover:text-white hover:scale-105 hover:translate-x-1`}
+                                  >
+                                    {subLink.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </nav>
           </motion.div>
 
-          {/* <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: 0.6,
-              duration: 2.4,
-              ease: [0.16, 1, 0.3, 1],
-              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-            }}
-            className="lg:block hidden"
-          >
-            <div className="relative">
-              <button
-                type="button"
-                onClick={toggleModal}
-                className={`relative z-10 px-[30px] rounded-[12px] hover:rounded-[16px] bg-[#77A9E829] backdrop-blur-[10px] main-shadow flex items-center gap-2 py-[15px]`}
-              >
-                <span
-                  className={`text-[16px] leading-[18px] tracking-[-0.16px] text-white`}
-                >
-                  Menu
-                </span>
-                <div className="w-6 h-6 relative flex flex-col justify-center items-center">
-                  <motion.div
-                    className="w-full h-[2px] bg-white rounded-full"
-                    animate={{
-                      rotate: isModalOpen ? 45 : 0,
-                      y: isModalOpen ? 1 : -4,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                  <motion.div
-                    className="w-full h-[2px] bg-white rounded-full"
-                    animate={{
-                      rotate: isModalOpen ? -45 : 0,
-                      y: isModalOpen ? -2 : 4,
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  />
-                </div>
-              </button>
-              <div className="glow-effect"></div>
-            </div>
-          </motion.div> */}
           <button className="main-shadow py-[15px] w-full max-w-[125px] bg-[#94A8ED0A] backdrop-blur-[20px] rounded-xl md:block hidden">
             <span className=" text-[14px] leading-[18px] text-white">
               Try now
@@ -267,17 +271,6 @@ const Header = () => {
                     {item.label}
                   </motion.a>
                 ))}
-
-                {/* <motion.button
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navLinksMobile.length * 0.1 }}
-                  className="main-shadow py-[15px] w-full max-w-[125px] bg-[#94A8ED0A] backdrop-blur-[20px] rounded-xl"
-                >
-                  <span className="text-[14px] leading-[18px] text-white">
-                    Try now
-                  </span>
-                </motion.button> */}
               </nav>
             </div>
           </motion.div>

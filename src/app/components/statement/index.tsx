@@ -9,14 +9,14 @@ const Statement = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 0.01", "end 0.5"],
+    offset: ["start 0.01", "end 1"],
   });
 
   const icons = [
-    { src: "/statement/first.svg", range: [0, 0.25, 0.35, 0.45] },
-    { src: "/statement/second.svg", range: [0.25, 0.45, 0.55, 0.65] },
-    { src: "/statement/third.svg", range: [0.45, 0.65, 0.75, 0.85] },
-    // { src: "/statement/last.svg", range: [0.65, 0.85, 0.95, 1] },
+    { src: "/statement/first.svg", range: [0, 0.25, 0.45] },
+    { src: "/statement/second.svg", range: [0.25, 0.45, 0.65] },
+    { src: "/statement/third.svg", range: [0.45, 0.65, 0.85] },
+    { src: "/statement/last.svg", range: [0.85, 0.95, 1] },
   ];
 
   const text =
@@ -32,18 +32,18 @@ const Statement = () => {
           className="h-full max-h-[568px] lg:h-screen grid place-content-center relative"
           id="statement-section"
         >
-          <div className="absolute w-full flex justify-between items-center mx-auto top-[30%] left-0 right-0 max-w-[500px]">
+          <div className="absolute w-full flex justify-between items-center mx-auto top-[20%] left-0 right-0 max-w-[500px]">
             {icons.map((icon, index) => {
               const opacity = useTransform(
                 scrollYProgress,
                 icon.range,
-                [0, 1, 1, 0]
+                [0, 1, 0]
               );
 
               const yPos = useTransform(
                 scrollYProgress,
                 icon.range,
-                [100, 0, 0, -100]
+                [0, 0, -100]
               );
 
               return (
@@ -53,7 +53,7 @@ const Statement = () => {
                     opacity,
                     y: yPos,
                   }}
-                  className={index === 3 ? "absolute right-0" : ""}
+                  className={index === 3 ? "absolute left-0" : ""}
                 >
                   <div className="md:size-12 size-6 relative">
                     <Image src={icon.src} alt={`Icon ${index + 1}`} fill />
