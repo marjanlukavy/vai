@@ -1,5 +1,4 @@
 //@ts-nocheck
-
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -7,26 +6,32 @@ import { motion } from "framer-motion";
 const Banner = () => {
   const [activeCard, setActiveCard] = useState("ring");
 
-  // Mapping card types to images
   const images = {
     ring: "/vyvo-tech/watch-1.png",
     band: "/vyvo-tech/watch-2.png",
     watch: "/vyvo-tech/watch-3.png",
   };
 
-  // Click handler for cards
+  const cardLabels = {
+    ring: "Ring",
+    band: "Band",
+    watch: "Watch",
+  };
+
   const handleCardClick = (card: string) => {
     setActiveCard(card);
   };
+
   const handleScroll = () => {
     const targetSection = document.getElementById("statement-section");
     if (targetSection) {
       targetSection.scrollIntoView({
         behavior: "smooth",
-        block: "start", // aligns the element at the top of the view
+        block: "start",
       });
     }
   };
+
   return (
     <div className="bg-black rounded-b-[24px] relative">
       <motion.img
@@ -41,16 +46,15 @@ const Banner = () => {
           ease: [0.16, 1, 0.3, 1],
         }}
       />
-      <section className="min-h-[568px] md:min-h-[900px] max-w-[1280px] mx-auto w-full flex flex-col justify-start pt-[126px] md:pt-0 md:justify-center items-center md:gap-[154px] 2xl:px-0 px-4 overflow-hidden">
+      <section className="min-h-[568px] relative md:min-h-[900px] max-w-[1280px] mx-auto w-full flex flex-col justify-start pt-[126px] md:pt-0 md:justify-center items-center md:gap-[154px] 2xl:px-0 px-4 overflow-hidden">
         <div className="relative">
           <h1 className="text-white font-light font-nb text-[48px] md:text-[120px] leading-[52px] md:leading-[124px] text-center mx-auto max-w-[550px]">
             <span className="vyvo-tech-gradient-text">BioSense</span>
-            <br /> Ring
+            <br /> {cardLabels[activeCard]}{" "}
           </h1>
 
-          {/* Animated Image */}
           <motion.img
-            key={activeCard} // Framer Motion will detect changes
+            key={activeCard}
             src={images[activeCard]}
             alt=""
             initial={{ opacity: 0, scale: 0.8 }}
@@ -62,23 +66,22 @@ const Banner = () => {
         </div>
 
         <div className="w-full mt-auto md:mt-0 pb-6 md:pb-0 flex md:flex-row flex-col gap-8 md:gap-0 items-center justify-between">
-          {/* Scroll Button */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{
-              y: [20, 0, 0, 20], // Bounce motion from top to bottom
+              y: [20, 0, 0, 20],
               scale: 1,
               opacity: 1,
             }}
             transition={{
-              opacity: { duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.8 }, // Fade-in duration
-              scale: { duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.8 }, // Fade-in duration
-              repeat: Infinity, // Repeat animation infinitely
-              repeatDelay: 0.2, // 0.5 seconds delay between each loop
+              opacity: { duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.8 },
+              scale: { duration: 2.4, ease: [0.16, 1, 0.3, 1], delay: 0.8 },
+              repeat: Infinity,
+              repeatDelay: 0.2,
 
-              repeatType: "loop", // Continuous loop
-              duration: 2.1, // Duration of one cycle
-              ease: "easeInOut", // Smooth easing
+              repeatType: "loop",
+              duration: 2.1,
+              ease: "easeInOut",
             }}
             className="w-[16px] h-[24px] md:w-8 md:h-12 rounded-full grid place-content-center backdrop-blur-sm cursor-pointer bg-[rgba(148,168,237,0.04)]"
             onClick={handleScroll}

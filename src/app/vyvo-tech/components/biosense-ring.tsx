@@ -72,7 +72,7 @@ const BiosenseRing: React.FC = () => {
           BioSense Ring
         </h2>
 
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-start gap-[100px]">
           {/* Tags */}
           <div className="flex flex-col gap-6">
             {tags.map(({ id, icon, text }) => (
@@ -87,16 +87,18 @@ const BiosenseRing: React.FC = () => {
           </div>
 
           {/* Content Section */}
-          <div className="flex flex-col justify-center items-center gap-20 mt-[-10%]">
+          <div className="flex flex-col justify-center items-center gap-10 mt-[-10%]">
             <img
               src={`/vyvo-tech/${activeTag}.png`}
               alt={activeTag}
-              className="w-[603px] h-[500px] object-none"
+              className="w-[810px] h-[500px] object-contain"
             />
-            <div className="flex flex-col gap-[30px]">
-              <p className="max-w-[327px] w-full font-nb text-[20px] leading-[26px] text-black">
-                Monitor every beat, breath, burst of energy and spike of stress
-                by keeping BioSense Ring on your finger.
+            <div className="flex flex-col gap-[30px] items-center">
+              <p className="max-w-[744px] w-full font-nb text-[20px] leading-[26px] text-black text-center">
+                Watching over your well-being has never fit this well. The
+                BioSense Ring is a lightweight, discreet companion that
+                seamlessly tracks key metrics, delivering meaningful health
+                insights to help you optimize your well-being anytime, anywhere.
               </p>
               <button className="py-[15px] bg-[#77A9E829] hover:bg-transparent border border-transparent hover:border-[#77A9E829] transition-all duration-300 ease-in-out vyvo-button w-full max-w-[160px] rounded-[16px]">
                 <span className="text-[16px] leading-[18px] text-black tracking-[-0.01em] font-normal">
@@ -107,11 +109,11 @@ const BiosenseRing: React.FC = () => {
           </div>
 
           {/* Features */}
-          <div className="flex flex-col gap-6">
+          {/* <div className="flex flex-col gap-6">
             {features.map(({ icon, text }, index) => (
               <Feature key={index} icon={icon} text={text} />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
