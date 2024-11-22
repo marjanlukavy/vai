@@ -22,11 +22,9 @@ export default function Home() {
       <Statement />
       <div className="w-full relative">
         <Features />
-        <div className="relative ">
-          <Pricing />
-          <FAQ />
-          <TryNow />
-        </div>
+        <Pricing />
+        <FAQ />
+        <TryNow />
       </div>
     </main>
   );

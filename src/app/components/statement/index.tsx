@@ -1,6 +1,6 @@
 //@ts-nocheck
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
@@ -13,10 +13,10 @@ const Statement = () => {
   });
 
   const icons = [
-    { src: "/statement/first.svg", range: [0, 0.25, 0.45] },
-    { src: "/statement/second.svg", range: [0.25, 0.45, 0.65] },
-    { src: "/statement/third.svg", range: [0.45, 0.65, 0.85] },
-    { src: "/statement/last.svg", range: [0.85, 0.95, 1] },
+    { src: "/statement/first.svg", range: [0, 0.2, 0.35] },
+    { src: "/statement/second.svg", range: [0.2, 0.35, 0.5] },
+    { src: "/statement/third.svg", range: [0.35, 0.5, 0.65] },
+    { src: "/statement/last.svg", range: [0.65, 0.8, 1] },
   ];
 
   const text =
@@ -24,7 +24,7 @@ const Statement = () => {
 
   return (
     <div
-      className="md:h-[6000px] h-[700px] flex items-center justify-center md:block bg-black w-full z-50 relative"
+      className="md:h-[3000px] h-[700px] flex items-center justify-center md:block bg-black w-full z-50 relative"
       ref={sectionRef}
     >
       <div className="bg-black z-10 md:sticky top-[20%] w-full">
@@ -43,7 +43,7 @@ const Statement = () => {
               const yPos = useTransform(
                 scrollYProgress,
                 icon.range,
-                [0, 0, -100]
+                [50, 0, -50]
               );
 
               return (
@@ -75,8 +75,8 @@ const Paragraph = ({ paragraph, scrollYProgress }) => {
   return (
     <p className="flex text-[24px] leading-[32px] md:text-[40px] md:leading-[48px] px-4 md:p-10 max-w-[962px] font-light text-center justify-center items-center flex-wrap">
       {words.map((word, i) => {
-        const start = i / (words.length / 0.9);
-        const end = start + 1 / (words.length / 0.9);
+        const start = i / (words.length / 0.7);
+        const end = start + 1 / (words.length / 0.7);
         return (
           <Word key={i} progress={scrollYProgress} range={[start, end]}>
             {word}

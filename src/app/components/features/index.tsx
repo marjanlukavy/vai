@@ -98,16 +98,40 @@ const tabsData = [
 
 const Features = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const [isSticky, setIsSticky] = useState(false); // State for sticky position
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const targetRef = useRef<HTMLDivElement>(null);
   const sectionRefs = tabsData.map(() => useRef(null));
   const isMobile = useBreakpoint("lg");
 
   const sectionInViews = sectionRefs.map((ref) =>
     useInView(ref, {
       once: false,
-      margin: "-45% 0px 35% 0px",
+      margin: "-0% 0px 0% 0px",
     })
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!targetRef.current) return;
+
+      // Get the bounding rect of the target div
+      const rect = targetRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Check if the bottom of the div is visible
+      if (rect.bottom <= windowHeight) {
+        setIsAtBottom(true);
+      } else {
+        setIsAtBottom(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const newActiveTab = sectionInViews.findIndex((isInView) => isInView);
@@ -116,12 +140,19 @@ const Features = () => {
     }
   }, [sectionInViews]);
 
+  useEffect(() => {
+    if (isAtBottom) {
+      console.log("User has scrolled to the bottom of the page.");
+      // Add your functionality here, e.g., load more content or trigger animations.
+    }
+  }, [isAtBottom]);
+
   if (isMobile) {
     return <MobileFeatures />;
   }
 
   return (
-    <div className={`bg-[#050505]`}>
+    <div ref={targetRef} className={` top-0 bg-[#050505]`}>
       <section className="rounded-[24px] relative z-20 w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
         <div className="w-full flex items-center justify-center pt-[120px] z-10">
           <motion.h2
@@ -197,18 +228,13 @@ const Features = () => {
             </div>
           </div>
 
-          <div
-            className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[300px]"
-            // onScroll={handleScroll}
-          >
+          <div className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[300px]">
             <div className="flex flex-col gap-[124px]">
               <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
                 {tabsData.map((tab, tabIndex) => (
                   <motion.div
                     key={tab.id}
                     ref={sectionRefs[tabIndex]}
-                    // initial={{ opacity: 0 }}
-                    // animate={{ opacity: sectionInViews[tabIndex] ? 1 : 0 }}
                     transition={{ duration: 0.5 }}
                     className="space-y-20"
                   >
@@ -217,8 +243,7 @@ const Features = () => {
                         key={sectionIndex}
                         initial={{ opacity: 1, y: 30 }}
                         animate={{
-                          // opacity: sectionInViews[tabIndex] ? 1 : 0,
-                          y: sectionInViews[tabIndex] ? 100 : 30,
+                          y: sectionInViews[tabIndex] ? 0 : 30,
                         }}
                         transition={{
                           duration: 1.5,
@@ -235,7 +260,6 @@ const Features = () => {
                               key={itemIndex}
                               initial={{ opacity: 1, x: -20 }}
                               animate={{
-                                // opacity: sectionInViews[tabIndex] ? 1 : 0,
                                 x: sectionInViews[tabIndex] ? 0 : -20,
                               }}
                               transition={{
