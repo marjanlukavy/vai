@@ -106,7 +106,7 @@ const Features = () => {
   const sectionInViews = sectionRefs.map((ref) =>
     useInView(ref, {
       once: false,
-      margin: "-100px 0px -200px 0px", // Adjusts the triggering range by 100px
+      margin: "-65% 0px -200px 0px", // Adjusts the triggering range by 100px
     })
   );
 
@@ -122,25 +122,26 @@ const Features = () => {
   }
 
   return (
-    <div ref={targetRef} className={` top-0 bg-[#050505]`}>
+    <div ref={targetRef} className={`pb-[300px] top-0 bg-[#050505]`}>
       <section className="rounded-[24px] relative z-20 w-full flex items-center justify-center flex-col px-6 md:px-[100px] ">
-        <div className="w-full flex items-center justify-center pt-[120px] z-10">
+        {" "}
+        <div className="w-full flex items-center justify-center pt-[60px]  z-10 sticky top-0 pb-[150px]">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[40px] md:text-[64px] leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px]  text-white max-w-[649px] font-nb"
+            className="text-[40px] md:text-[64px] sticky top-0 leading-[44px] text-center md:leading-[68px] font-light tracking-[-1.92px]  text-white max-w-[649px] font-nb"
           >
             <span className="text-[#94A8ED]">A Companion That</span> Anticipates
             Your Needs
           </motion.h2>
         </div>
-        <div className="flex items-start justify-center w-full gap-[130px] ">
-          <div className="flex flex-col gap-[50px] sticky top-24 z-50 h-full pt-[120px] pb-[200px]">
+        <div className="flex items-start justify-center w-full gap-[130px]">
+          <div className="flex flex-col gap-[50px] sticky top-[40%] z-50 h-full">
             <span className="text-white font-nb text-[16px] leading-[20px] tracking-[-0.48px]">
               Features of VAI
             </span>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 items-baseline">
               {tabsData.map((tab, index) => (
                 <motion.div
                   key={tab.id}
@@ -186,9 +187,7 @@ const Features = () => {
                   </div>
                   <span
                     className={`text-[16px] leading-[20px] font-nb ${
-                      activeTab === index
-                        ? "text-[#94A8ED]"
-                        : "text-transparent"
+                      activeTab === index ? "text-[#94A8ED]" : "text-white"
                     } transition-colors duration-300`}
                   >
                     {tab.label}
@@ -198,9 +197,9 @@ const Features = () => {
             </div>
           </div>
 
-          <div className="max-w-[1200px] w-full pt-[120px] scrollbar-hide pb-[300px]">
+          <div className="max-w-[1200px] w-full scrollbar-hide ">
             <div className="flex flex-col gap-[124px]">
-              <div className="max-w-[900px] w-full flex flex-col gap-[200px]">
+              <div className="max-w-[900px] w-full flex flex-col gap-[100px]">
                 {tabsData.map((tab, tabIndex) => (
                   <motion.div
                     key={tab.id}
