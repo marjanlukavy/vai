@@ -7,6 +7,7 @@ import Image from "next/image";
 import SlashButton from "../controllers/button/slash-button";
 import { navLinks } from "@/constants/navlinks";
 import { motion, AnimatePresence } from "framer-motion";
+import useScrollDirection from "@/hooks/useScrollDirection";
 
 const centeredHeaderPages = ["/gpu-farm"];
 
@@ -14,6 +15,7 @@ const Header = () => {
   const pathname = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const scrollDirection = useScrollDirection();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const shouldCenterHeader = centeredHeaderPages.includes(pathname);
@@ -59,17 +61,17 @@ const Header = () => {
     <>
       <div
         className={`w-full ${
-          shouldCenterHeader
-            ? "absolute left-1/2 -translate-x-1/2 top-0 z-50"
-            : "bg-black"
+          shouldCenterHeader ? "absolute left-1/2 -translate-x-1/2 top-0" : ""
         }
-`}
+        bg-black/50 backdrop-blur-[20px]
+       sticky ${
+         scrollDirection === "down" ? "-top-24 " : "top-0"
+       }  z-[1000000] transition-all duration-500`}
       >
         <header
           className={`
-            max-w-[1280px] px-4 md:px-0 mx-auto w-full pt-5 md:pt-8 
+            max-w-[1280px] px-4 md:px-0 mx-auto w-full py-2.5 md:py-4 
             flex items-center justify-between relative z-[101]
-         
           `}
         >
           <motion.div
@@ -360,7 +362,7 @@ const navigationData = [
   {
     section: "VAI OS",
     items: [
-      { title: "VAI OS", href: "#" },
+      { title: "VAI OS", href: "/" },
       { title: "Tokenomics Roadmap", href: "#" },
       { title: "Getting Started", href: "#" },
       { title: "Using Agents", href: "#" },
@@ -403,8 +405,8 @@ const navigationData = [
 ];
 
 const navLinksMobile = [
-  { label: "Home", href: "/" },
-  { label: "VAI OS", href: "/vai-os" },
+  { label: "Home", href: "/home" },
+  { label: "VAI OS", href: "/" },
   { label: "Vyvo Tech", href: "/vyvo-tech" },
   { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
   { label: "SocialFi", href: "/social-fi" },

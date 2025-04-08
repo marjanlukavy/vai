@@ -6,10 +6,10 @@ import React from "react";
 
 const Footer = () => {
   const navItems = [
-    { label: "Home", href: "" },
-    { label: "VAI OS", href: "" },
-    { label: "Vyvo Tech", href: "" },
-    { label: "Vyvo Smart Chain", href: "" },
+    { label: "Home", href: "/home" },
+    { label: "VAI OS", href: "/" },
+    { label: "Vyvo Tech", href: "/wearables" },
+    { label: "Vyvo Smart Chain", href: "/vyvo-smart-chain" },
     { label: "SocialFi", href: "/social-fi" },
     { label: "Store", href: "" },
   ];
@@ -75,7 +75,7 @@ const Footer = () => {
           </div>
 
           <span className="text-white/60 text-[16px] leading-[20px] font-light lg:block hidden font-nb tracking-[-] text-center sm:text-left">
-            © 2024 Vyvo
+            © 2025 Vyvo
           </span>
         </div>
 
@@ -163,7 +163,7 @@ const Footer = () => {
               </svg>
             </Link>
             <span className="text-white/60 font-nb text-[12px] leading-[16px] tracking-[-0.03em]">
-              © 2024 VYVO AI
+              © 2025 VYVO AI
             </span>
           </div>
         </div>
