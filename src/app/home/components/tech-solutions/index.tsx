@@ -14,13 +14,13 @@ const TechSolutions = () => {
 
   const solutionCards = [
     {
-      title: "Vyvo Smart Chain",
+      title: "VAI OS",
       description:
-        "The first heartbeat-powered blockchain, Vyvo Smart Chain keeps your data private, secure, and under your control. No third parties—just complete transparency and ownership. With its decentralized platform, you can manage and access rewards generated from anonymous wearable data.",
+        "At the vanguard of AI, Vyvo turns data from your day to day life into actionable insights that adapt to your lifestyle. With your Life CoPilot, every interaction makes it smarter and capable of new personalized solutions, delivering ever growing value for its users.",
       images: [
-        "/homepage/solutions/card1/card1.webp",
-        "/homepage/solutions/card1/card2.webp",
-        "/homepage/solutions/card1/card3.webp",
+        "/homepage/solutions/card3/card1.webp",
+        "/homepage/solutions/card3/card2.webp",
+        "/homepage/solutions/card3/card3.webp",
       ],
       reverse: false,
     },
@@ -37,14 +37,15 @@ const TechSolutions = () => {
       ],
       reverse: true,
     },
+
     {
-      title: "VAI OS",
+      title: "Vyvo Smart Chain",
       description:
-        "At the vanguard of AI, Vyvo turns data from your day to day life into actionable insights that adapt to your lifestyle. With your Life CoPilot, every interaction makes it smarter and capable of new personalized solutions, delivering ever growing value for its users.",
+        "The first heartbeat-powered blockchain, Vyvo Smart Chain keeps your data private, secure, and under your control. No third parties—just complete transparency and ownership. With its decentralized platform, you can manage and access rewards generated from anonymous wearable data.",
       images: [
-        "/homepage/solutions/card3/card1.webp",
-        "/homepage/solutions/card3/card2.webp",
-        "/homepage/solutions/card3/card3.webp",
+        "/homepage/solutions/card1/card1.webp",
+        "/homepage/solutions/card1/card2.webp",
+        "/homepage/solutions/card1/card3.webp",
       ],
       reverse: false,
     },
@@ -172,7 +173,6 @@ const TechSolutions = () => {
           style={{
             opacity: headerOpacity,
             y: headerY,
-            scale: headerScale,
           }}
         >
           <motion.h2

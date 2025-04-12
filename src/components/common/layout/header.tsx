@@ -34,7 +34,10 @@ const Header = () => {
   ) => {
     e.preventDefault();
     const targetId = href.replace("/", "");
-    const element = document.querySelector(targetId);
+    let element = null;
+if (typeof document !== "undefined") {
+  element = document.querySelector(targetId);
+}
 
     if (element) {
       element.scrollIntoView({
@@ -51,18 +54,20 @@ const Header = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      if (typeof document !== "undefined") {
+  document.body.style.overflow = "hidden";
+}
     } else {
-      document.body.style.overflow = "auto";
+      if (typeof document !== "undefined") {
+  document.body.style.overflow = "auto";
+}
     }
   }, [isOpen]);
 
   return (
     <>
       <div
-        className={`w-full ${
-          shouldCenterHeader ? "absolute left-1/2 -translate-x-1/2 top-0" : ""
-        }
+        className={`w-full ${1 ? "absolute left-1/2  top-0" : ""}
         bg-black/50 backdrop-blur-[20px]
        sticky ${
          scrollDirection === "down" ? "-top-24 " : "top-0"
@@ -74,19 +79,25 @@ const Header = () => {
             flex items-center justify-between relative z-[101]
           `}
         >
-          <motion.div
-            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px]"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              delay: 0.6,
-              duration: 2.4,
-              ease: [0.16, 1, 0.3, 1],
-              opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
-            }}
+          <Link
+            href="/home"
+            aria-label="Navigate to home page"
+            className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
           >
-            <Image src={"/logo.svg"} alt={"Logo.svg"} fill priority />
-          </motion.div>
+            <motion.div
+              className="relative max-w-[82px] md:max-w-[124.459px] w-full h-[28.394px] cursor-pointer"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                delay: 0.6,
+                duration: 2.4,
+                ease: [0.16, 1, 0.3, 1],
+                opacity: { duration: 3.2, ease: [0.16, 1, 0.3, 1], delay: 0.6 },
+              }}
+            >
+              <Image src={"/logo.svg"} alt={"Vyvo Logo"} fill priority />
+            </motion.div>
+          </Link>
 
           <motion.div
             className="hidden lg:flex items-center w-full max-w-[676px]"
@@ -166,7 +177,8 @@ const Header = () => {
           </motion.div>
           <div className="flex gap-3">
             <Link
-              href={""}
+              href={"https://www.facebook.com/VyvoGroup/"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg
@@ -188,7 +200,8 @@ const Header = () => {
             </Link>
 
             <Link
-              href={""}
+              href={"https://t.me/VyvoSmartChainEN"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg
@@ -209,7 +222,8 @@ const Header = () => {
             </Link>
 
             <Link
-              href={""}
+              href={"https://x.com/VyvoSmartChain"}
+              target="_blank"
               className="size-10 main-shadow bg-[#94A8ED0A] backdrop-blur-[20px] rounded-full md:grid place-content-center hidden hover:bg-[#94A8ED33] hover:scale-105 transition-all duration-300 ease-in-out"
             >
               <svg
